@@ -106,35 +106,38 @@ Example:
 ## Project Structure
 
 ```
-factory/
+.
 ├── .claude-plugin/
-│   ├── plugin.json
-│   └── marketplace.json
-├── skills/
-│   ├── think/SKILL.md
-│   ├── plan/SKILL.md
-│   ├── build/SKILL.md
-│   ├── hunt/SKILL.md
-│   ├── check/SKILL.md
-│   ├── compound/SKILL.md
-│   ├── design/SKILL.md
-│   ├── ship/SKILL.md
-│   ├── health/SKILL.md
-│   └── retro/SKILL.md
-├── agents/
-│   ├── correctness.md
-│   ├── security.md
-│   ├── adversarial.md
-│   └── learnings-researcher.md
-├── commands/
-│   └── full-dev.md
-├── references/
-│   ├── iron-laws.md
-│   ├── anti-rationalizations.md
-│   └── verification-checklists.md
-└── docs/
-    ├── DESIGN.md
-    └── solutions/
+│   └── marketplace.json         # Marketplace registry (points to ./factory)
+├── README.md
+└── factory/                     # The actual plugin
+    ├── .claude-plugin/
+    │   └── plugin.json          # Plugin manifest
+    ├── skills/
+    │   ├── think/SKILL.md
+    │   ├── plan/SKILL.md
+    │   ├── build/SKILL.md
+    │   ├── hunt/SKILL.md
+    │   ├── check/SKILL.md
+    │   ├── compound/SKILL.md
+    │   ├── design/SKILL.md
+    │   ├── ship/SKILL.md
+    │   ├── health/SKILL.md
+    │   └── retro/SKILL.md
+    ├── agents/
+    │   ├── correctness.md
+    │   ├── security.md
+    │   ├── adversarial.md
+    │   └── learnings-researcher.md
+    ├── commands/
+    │   └── full-dev.md
+    ├── references/
+    │   ├── iron-laws.md
+    │   ├── anti-rationalizations.md
+    │   └── verification-checklists.md
+    └── docs/
+        ├── DESIGN.md
+        └── solutions/           # Knowledge store (populated at runtime)
 ```
 
 ## License

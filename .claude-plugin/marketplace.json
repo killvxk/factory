@@ -14,7 +14,7 @@
       "name": "factory",
       "description": "10 engineering skills (think/plan/build/hunt/check/compound/design/ship/health/retro) + 4 review agents + pipeline command. TDD, multi-persona review, knowledge compounding, anti-rationalization.",
       "version": "0.1.0",
-      "source": ".",
+      "source": "./factory",
       "category": "development",
       "author": { "name": "killvxk" },
       "homepage": "https://github.com/killvxk/factory",
