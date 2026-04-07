@@ -75,10 +75,7 @@ After all code is written:
 - Run the project's build command. Paste last 10 lines as evidence.
 - Run the project's test command. Paste test summary line as evidence.
 - If either fails: fix before claiming completion (Iron Law 3).
-
-## Verification
-
-After all code is written, consult `references/verification-checklists.md` for the /build checklist.
+- Consult `references/verification-checklists.md` for the /build checklist.
 
 ## Gotchas
 

@@ -83,6 +83,8 @@ After all fixes applied:
 - Untested code paths
 - N+1 query patterns
 
+## Verification
+
 Before closing, consult `references/verification-checklists.md` for the /check checklist.
 
 ## Gotchas

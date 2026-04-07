@@ -78,6 +78,8 @@ Sources: superpowers (Iron Laws), agent-skills (per-skill tables), Waza (rationa
 | "CI is probably green" | Check it; "probably" is not evidence |
 | "This doesn't need a PR" | PRs are the audit trail; create one |
 | "The checklist is overkill" | Someone shipped without it and broke prod; that's why it exists |
+| "Staging looked fine, no need to check prod" | Staging != production; verify both |
+| "I'll clean up worktrees later" | Disk fills up; clean now |
 
 ### Health Phase
 | Rationalization | Counter-Action |
