@@ -11,6 +11,13 @@ version: 1.0.0
 Audit the six layers of Claude Code configuration and report issues by severity.
 Optionally compute a weighted 0-10 code quality score.
 
+## Constraints
+
+- Never fabricate PASS items without evidence (run the actual checks)
+- Credentials MUST be redacted before any agent receives data
+- If a tool is unavailable (jq, python3), mark that area as [INSUFFICIENT DATA], not a finding
+- Do not auto-apply fixes without user confirmation
+
 ## Six-Layer Audit
 
 1. **CLAUDE.md** — Does it exist? Is it concise? Any contradictions?
@@ -32,6 +39,31 @@ Optionally compute a weighted 0-10 code quality score.
 
 Single bash block gathers: file count, CLAUDE.md contents, settings.json, hooks.json,
 MCP config, skill inventory, startup context estimate (words * 1.3 tokens).
+
+## Dual-Agent Audit (Standard/Complex tiers, from Waza /health)
+
+For Standard and Complex projects, dispatch TWO parallel agents for independent analysis:
+
+**Agent 1 — Context + Security:**
+- CLAUDE.md quality and contradictions
+- Rules placement and conflicts
+- Skill descriptions (CSO compliance)
+- MCP token overhead (>10% of 200K context = HIGH, >6 servers = flag)
+- Startup context budget (>30K tokens before first message = flag)
+- Skill security scan: prompt injection, data exfiltration, destructive commands,
+  hardcoded credentials, obfuscation, safety override instructions
+
+**Agent 2 — Control + Behavior:**
+- hooks.json schema validation
+- allowedTools hygiene (only genuinely dangerous ops)
+- Credential exposure in config files
+- Model name validation (must follow `claude-*` pattern)
+- Three-layer defense consistency (intent/knowledge/enforcement)
+- Conversation behavior patterns from recent sessions
+
+For Simple projects, run all checks locally (no subagents needed).
+
+Credentials MUST be redacted before any agent receives data.
 
 ## Severity Classification
 
@@ -56,6 +88,20 @@ Weighted 0-10 score across:
 - Test runner (30%): `npm test` / `cargo test` / `pytest`
 - Dead code (15%): unused exports, unreachable branches
 - Shell lint (10%): `shellcheck` on any .sh files
+
+## Verification
+
+Before closing, consult `references/verification-checklists.md` for the /health checklist.
+
+## Anti-Rationalizations
+
+| You might think... | But actually... |
+|--------------------|-----------------|
+| "The setup looks fine from memory" | Run the data collection. Memory is not evidence. |
+| "MCP overhead doesn't matter" | 10% of 200K context is 20K tokens — that's significant. |
+| "Only Complex projects need this" | Simple projects benefit most — one bad CLAUDE.md wastes every session. |
+| "Hooks are working, I can tell" | Can you? Run the schema check. Silent failures are the worst kind. |
+| "This finding is too minor to report" | Report it as [-] incremental. Let the user decide. |
 
 ## Gotchas
 

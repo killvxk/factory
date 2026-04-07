@@ -57,6 +57,20 @@ and identify one actionable improvement.
 - One improvement, not a wish list
 - Keep the retro under 5 minutes of reading time
 
+## Verification
+
+Before closing, consult `references/verification-checklists.md` for the /retro checklist.
+
+## Anti-Rationalizations
+
+| You might think... | But actually... |
+|--------------------|-----------------|
+| "I remember what I did this week" | You don't. Run git log. Memory is selective. |
+| "This retro can wait until Monday" | Context decays. Do it now while the week is fresh. |
+| "Nothing interesting happened" | Check git log. You forgot something. |
+| "Seven improvements is better than one" | Zero will get done. Pick one. |
+| "The docs/solutions/ are still fine" | When did you last check? Staleness is invisible. |
+
 ## Gotchas
 
 - Retro based on memory instead of git log — missed half the work

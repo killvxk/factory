@@ -51,12 +51,38 @@ These generic layouts must NOT appear unless explicitly requested:
 - Exit animations: 150-250ms
 - Test: if removing the animation changes nothing about how the page feels, remove it
 
+## Verification (with before/after from gstack)
+
+For modifications to existing UI:
+1. **Before**: Take a screenshot or snapshot of the current state BEFORE any changes
+2. Implement the changes
+3. **After**: Take a screenshot of the new state
+4. **Compare**: Explicitly describe what changed between before and after
+5. Confirm the changes match the locked direction
+6. Check for unintended regressions (did anything ELSE change that shouldn't have?)
+
+For new UI:
+1. Open the result in a browser (use Bash to serve, or write an HTML file)
+2. Take a screenshot or describe what you see
+3. Confirm it matches the locked direction
+4. Check mobile viewport if responsive was a constraint
+
+Never claim "it looks right" without a visual check in an actual browser.
+
 ## Verification
 
-- Open the result in a browser (use Bash to serve, or write an HTML file)
-- Take a screenshot or describe what you see
-- Confirm it matches the locked direction
-- Check mobile viewport if responsive was a constraint
+Before closing, consult `references/verification-checklists.md` for the /design checklist.
+
+## Anti-Rationalizations
+
+| You might think... | But actually... |
+|--------------------|-----------------|
+| "Clean and modern is a direction" | It's not. Name a specific aesthetic. |
+| "The user didn't specify a style" | That's why you ASK the 4 questions first. |
+| "It looks fine to me" | Open a browser. "Looks fine" without visual check = fabrication. |
+| "I'll add animations later" | Motion is part of the direction, not decoration. Decide now. |
+| "Cards are the standard pattern" | Standard = template. Is there a reason for cards here? |
+| "The client won't notice the font" | They'll notice something feels generic. They just won't know why. |
 
 ## Gotchas
 

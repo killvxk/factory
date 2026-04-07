@@ -76,6 +76,10 @@ After all code is written:
 - Run the project's test command. Paste test summary line as evidence.
 - If either fails: fix before claiming completion (Iron Law 3).
 
+## Verification
+
+After all code is written, consult `references/verification-checklists.md` for the /build checklist.
+
 ## Gotchas
 
 - Wrote production code before the test — must delete and restart
@@ -94,3 +98,9 @@ After all code is written:
 | "The test infrastructure isn't set up yet" | Set it up. That's part of the task. |
 | "TDD slows me down" | TDD slows your typing. It speeds your shipping. |
 | "This is just a config change" | Config changes break production. Test the config. |
+| "I'll add tests after the PR" | After never comes. RED before GREEN. Always. |
+| "The tests pass, so the code is correct" | Tests prove what they test, not what they don't. Check coverage. |
+| "I know this works, I tested it manually" | Manual tests evaporate. Automated tests persist. Write it down. |
+| "This is a refactor, behavior doesn't change" | Prove it: tests before AND after. Identical results = safe refactor. |
+| "The existing code doesn't have tests either" | That's not an excuse. Add tests for what you touch. |
+| "Worktree setup takes too long" | 3 commands, 10 seconds. Merge conflicts take hours. |

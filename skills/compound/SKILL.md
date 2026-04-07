@@ -67,6 +67,28 @@ Future sessions surface the top 3 most relevant learnings via tag matching.
 - `/check` references relevant past solutions when reviewing similar code
 - `/retro` reviews and cleans up stale docs/solutions/ entries
 
+## Auto-Surface Mechanism
+
+The `/compound` skill writes knowledge. The surfacing happens via:
+1. `/think` on entry dispatches `factory:learnings-researcher` which searches both
+   `docs/solutions/` and `.factory/learnings.jsonl`
+2. `/check` dispatches the same agent when reviewing code that touches previously-documented areas
+3. No SessionStart hook is needed — surfacing is pull-based, triggered by skills that need context
+
+## Verification
+
+Before closing, consult `references/verification-checklists.md` for the /compound checklist.
+
+## Anti-Rationalizations
+
+| You might think... | But actually... |
+|--------------------|-----------------|
+| "I'll document it later" | Context decays in hours. Write it now. |
+| "The code is self-documenting" | Code says WHAT, not WHY. Document the decision. |
+| "This is too small to document" | Small gotchas compound. 1 line in JSONL takes 10 seconds. |
+| "Nobody will read this" | Future /think will auto-surface it. The reader is the machine. |
+| "The PR description covers it" | PR descriptions are on GitHub. docs/solutions/ is in the repo. |
+
 ## Gotchas
 
 - Wrote a solution doc so long nobody would read it — keep it 20-50 lines

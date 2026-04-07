@@ -52,6 +52,17 @@ NO FIXES WITHOUT ROOT CAUSE INVESTIGATION FIRST
 
 5. **Guard**: Add a regression test that would have caught this bug.
 
+## Freeze Boundary (from gstack /investigate)
+
+When debugging begins, activate a mental freeze boundary:
+- Only modify files directly related to the hypothesis
+- If you need to edit a file outside the hypothesis scope, STOP and state why
+- This prevents "fix-induced regressions" — touching unrelated code while focused on a bug
+
+Practical enforcement:
+- Before each edit, check: "Is this file named in my hypothesis?" If no, pause.
+- If the fix genuinely requires changes beyond the hypothesis scope, update the hypothesis first.
+
 ## Self-Regulation
 
 - Reverted same area twice? Stop and rethink the approach.
@@ -62,6 +73,10 @@ NO FIXES WITHOUT ROOT CAUSE INVESTIGATION FIRST
 
 "That part doesn't matter" or "That's unrelated" — these areas someone avoids
 often contain the actual problem. Investigate them.
+
+## Verification
+
+Before closing, consult `references/verification-checklists.md` for the /hunt checklist.
 
 ## Gotchas
 

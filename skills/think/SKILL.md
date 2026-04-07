@@ -46,6 +46,17 @@ When the user's intent is ambiguous, ask which posture to take:
 - **hold**: validate without changing scope
 - **cut**: simplify, remove, reduce
 
+## Multi-Perspective Validation (from gstack)
+
+For Standard and Deep depth, evaluate the proposal from three lenses before presenting:
+
+1. **User lens**: Does this solve a real user pain? Would they notice the difference?
+2. **Engineering lens**: Is the architecture sound? Does it handle 10x growth? What breaks first?
+3. **Security lens**: What can be exploited? Where are the trust boundaries?
+
+State one concern from each lens. If any concern is unresolved, investigate before presenting.
+Do NOT create separate review steps for each lens — integrate them into your proposal naturally.
+
 ## Confidence Check
 
 Before presenting to user, self-score on 3 axes (1-5):
@@ -62,6 +73,10 @@ User explicitly approves a direction. Output a brief summary of:
 - Key constraints identified
 - Files/modules that will be affected
 - Open questions (if any)
+
+## Verification
+
+Before exiting, consult `references/verification-checklists.md` for the /think checklist.
 
 ## Gotchas
 

@@ -60,14 +60,32 @@ A good plan can be executed by a different person (or agent) without asking ques
 - Depends on: Task 1
 ```
 
-## Self-Review Checklist
+## Plan Review
 
-Before presenting the plan:
+After drafting the plan, run a self-review AND optionally invoke `factory:check` in headless mode
+on the plan document itself (document-review pattern from compound-engineering).
+If headless review is overkill for the scope, at minimum complete this self-review:
+
 - [ ] Every task has files, acceptance, verify
 - [ ] No circular dependencies
 - [ ] Parallel tasks have no shared mutable state
 - [ ] Verification commands are real (not "check manually")
 - [ ] Total scope matches the approved direction (no scope creep)
+
+## Verification
+
+Before closing, consult `references/verification-checklists.md` for the /plan checklist.
+
+## Anti-Rationalizations
+
+| You might think... | But actually... |
+|--------------------|-----------------|
+| "The plan is in my head, no need to write it down" | If you can't write it, you can't execute it. Write it. |
+| "This is too small for a formal plan" | If it has 3+ tasks, it needs a plan. Small plans are fast to write. |
+| "Verification commands are obvious" | Write them. Obvious to you, not to the Dev agent in a fresh worktree. |
+| "Dependencies are clear from context" | Mark them explicitly. Context is lost between sessions. |
+| "I'll figure out the file paths during implementation" | Grep now. Wrong paths waste entire task cycles. |
+| "The spec covers everything" | Specs say WHAT. Plans say HOW. Both are needed. |
 
 ## Gotchas
 

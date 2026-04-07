@@ -83,6 +83,8 @@ After all fixes applied:
 - Untested code paths
 - N+1 query patterns
 
+Before closing, consult `references/verification-checklists.md` for the /check checklist.
+
 ## Gotchas
 
 - Commented on wrong GitHub issue (#249 vs #255) — always `gh issue view N` to confirm

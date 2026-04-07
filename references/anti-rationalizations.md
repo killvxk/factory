@@ -51,6 +51,46 @@ Sources: superpowers (Iron Laws), agent-skills (per-skill tables), Waza (rationa
 | "I'll just try this one thing" | State a hypothesis first |
 | "It works sometimes" | Intermittent = timing bug; investigate concurrency |
 
+### Plan Phase
+| Rationalization | Counter-Action |
+|----------------|----------------|
+| "The plan is in my head" | If you can't write it, you can't execute it |
+| "Dependencies are obvious" | Mark them explicitly; context is lost between sessions |
+| "I'll figure out file paths during implementation" | Grep now; wrong paths waste entire task cycles |
+
+### Compound Phase
+| Rationalization | Counter-Action |
+|----------------|----------------|
+| "I'll document it later" | Context decays in hours; write it now |
+| "The code is self-documenting" | Code says WHAT, not WHY; document the decision |
+| "Nobody will read this" | Future /think auto-surfaces it; the reader is the machine |
+
+### Design Phase
+| Rationalization | Counter-Action |
+|----------------|----------------|
+| "Clean and modern is a direction" | It's not; name a specific aesthetic |
+| "It looks fine to me" | Open a browser; "looks fine" without visual check = fabrication |
+| "Cards are the standard pattern" | Standard = template; is there a reason for cards here? |
+
+### Ship Phase
+| Rationalization | Counter-Action |
+|----------------|----------------|
+| "CI is probably green" | Check it; "probably" is not evidence |
+| "This doesn't need a PR" | PRs are the audit trail; create one |
+| "The checklist is overkill" | Someone shipped without it and broke prod; that's why it exists |
+
+### Health Phase
+| Rationalization | Counter-Action |
+|----------------|----------------|
+| "The setup looks fine from memory" | Run data collection; memory is not evidence |
+| "Only complex projects need this" | Simple projects benefit most from a clean setup |
+
+### Retro Phase
+| Rationalization | Counter-Action |
+|----------------|----------------|
+| "I remember what I did this week" | You don't; run git log |
+| "Seven improvements is better than one" | Zero will get done; pick one |
+
 ## Detection
 
 These phrases in agent output trigger mandatory verification:
