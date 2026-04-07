@@ -11,6 +11,13 @@ version: 1.0.0
 Safely integrate completed work into the main branch with appropriate
 verification at each step. Present exactly 4 options, never open-ended.
 
+## Constraints
+
+- Never ship without tests passing on the merged result (not just the branch)
+- Never skip the pre-launch checklist for "simple" changes
+- Destructive option (discard) requires explicit typed confirmation
+- CI must pass before merge — poll and wait, do not assume
+
 ## Pre-Ship Verification
 
 Before any ship action:
@@ -65,12 +72,36 @@ For option 1 or 2, verify:
 - [ ] README updated if public API changed
 - [ ] CHANGELOG entry added if user-facing change
 
+## CI Wait (from gstack land-and-deploy)
+
+After creating a PR or pushing to main:
+1. Check CI status: `gh pr checks {PR_NUMBER}` or `gh run list --limit 1`
+2. If CI is running: poll every 30 seconds until complete (max 10 minutes)
+3. If CI fails: DO NOT merge. Read the failure output, fix, and re-push.
+4. If CI passes: proceed with merge or confirm PR is ready for review.
+
+Never assume CI passed. Always check.
+
 ## Post-Ship
 
 After merge/PR:
 - Clean up worktrees: `git worktree prune`
 - Delete merged branches: `git branch -d {branch}`
 - If deployed: verify production (check health endpoint, run smoke test)
+
+## Verification
+
+Before closing, consult `references/verification-checklists.md` for the /ship checklist.
+
+## Anti-Rationalizations
+
+| You might think... | But actually... |
+|--------------------|-----------------|
+| "CI is probably green" | Check it. "Probably" is not evidence. |
+| "This doesn't need a PR, I'll push directly" | PRs are the audit trail. Create one. |
+| "The checklist is overkill for this change" | The checklist exists because someone shipped without it and broke prod. |
+| "I'll clean up the worktrees later" | Disk fills up. Clean now. |
+| "Staging looked fine, no need to check prod" | Staging != production. Verify both. |
 
 ## Gotchas
 
