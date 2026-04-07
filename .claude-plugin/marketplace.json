@@ -1,0 +1,27 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "factory-plugins",
+  "owner": {
+    "name": "killvxk",
+    "email": ""
+  },
+  "metadata": {
+    "description": "Self-contained software factory: 10 engineering skills, 4 review agents, 1 pipeline. Distilled from compound-engineering, agent-skills, Waza, superpowers, and gstack.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "factory",
+      "description": "10 engineering skills (think/plan/build/hunt/check/compound/design/ship/health/retro) + 4 review agents + pipeline command. TDD, multi-persona review, knowledge compounding, anti-rationalization.",
+      "version": "0.1.0",
+      "source": ".",
+      "category": "development",
+      "author": { "name": "killvxk" },
+      "homepage": "https://github.com/killvxk/factory",
+      "repository": "https://github.com/killvxk/factory",
+      "license": "MIT",
+      "keywords": ["engineering", "tdd", "code-review", "knowledge", "debugging", "pipeline", "skills"],
+      "tags": ["development", "productivity", "workflow", "quality"]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+---
+name: retro
+description: "Weekly retrospective with evidence-based review and knowledge maintenance. Use at the end of a week, sprint, or project milestone. Triggers: retro, retrospective, what did we do this week, weekly review, reflect on this sprint."
+version: 1.0.0
+---
+
+# /retro — Reflect, Clean, Improve
+
+## Goal
+
+Review the week's work using git evidence (not memory), clean up stale knowledge,
+and identify one actionable improvement.
+
+## Process
+
+1. **Evidence gathering** (not from memory):
+   ```bash
+   git log --oneline --since="7 days ago" --all
+   git diff --stat HEAD~20..HEAD  # or appropriate range
+   ```
+
+2. **What shipped**: List features, fixes, and changes with commit references.
+
+3. **What was learned**: Review .factory/learnings.jsonl entries from the past week.
+
+4. **Knowledge maintenance**: Review docs/solutions/ for freshness.
+   For each doc, classify:
+   - **Keep**: still relevant and accurate
+   - **Update**: core is right but details have changed
+   - **Delete**: no longer applicable (code was removed/rewritten)
+
+5. **One improvement**: Identify exactly ONE actionable improvement for next week.
+   Not three. Not five. One. Make it specific and measurable.
+
+## Output
+
+```markdown
+## Week of {date}
+
+### Shipped
+- {feature/fix}: {1-line description} ({commit ref})
+
+### Learned
+- {learning from JSONL or conversation}
+
+### Knowledge Maintenance
+- docs/solutions/{file}.md: Keep | Updated | Deleted
+
+### Next Week: One Improvement
+- {specific, measurable action}
+```
+
+## Constraints
+
+- Use git log as source of truth, not session memory
+- Do not fabricate commit references
+- One improvement, not a wish list
+- Keep the retro under 5 minutes of reading time
+
+## Gotchas
+
+- Retro based on memory instead of git log — missed half the work
+- Listed 7 improvements — none got done. One is enough.
+- Forgot to clean stale docs/solutions/ — knowledge rot accumulated
