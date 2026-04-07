@@ -19,6 +19,7 @@ Source: agent-skills (Addy Osmani), superpowers (Jesse Vincent).
 - [ ] At least 2 approaches proposed with trade-offs
 - [ ] Own recommendation attacked before presenting
 - [ ] docs/solutions/ consulted for prior art
+- [ ] Multi-perspective validation completed (user/engineering/security) for Standard/Deep depth
 - [ ] No code, pseudo-code, or scaffolding in output
 
 ### /plan
@@ -58,11 +59,13 @@ Source: agent-skills (Addy Osmani), superpowers (Jesse Vincent).
 
 ### /ship
 - [ ] All tests pass on merged code
+- [ ] CI checked and confirmed passing (not assumed)
 - [ ] Pre-launch checklist completed (6 categories)
 - [ ] One of 4 structured options selected (merge/PR/keep/discard)
 
 ### /health
 - [ ] Six-layer audit complete
+- [ ] Dual-agent audit dispatched for Standard/Complex tiers (or local-only for Simple)
 - [ ] Severity classified ([!] critical, [~] structural, [-] incremental)
 - [ ] No PASS items fabricated without evidence
 
