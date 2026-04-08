@@ -1,5 +1,7 @@
 # Factory
 
+> v0.2.0
+
 10 engineering skills. 4 review agents. 1 pipeline. 3 iron laws.
 
 A self-contained Claude Code plugin distilled from five projects:
@@ -17,7 +19,7 @@ A self-contained Claude Code plugin distilled from five projects:
 ```bash
 # From marketplace
 /plugin marketplace add killvxk/factory
-/plugin install factory@killvxk-factory
+/plugin install factory@factory-plugins
 
 # Or clone locally
 git clone https://github.com/killvxk/factory ~/.claude/plugins/factory
@@ -68,8 +70,9 @@ Everything else is autonomous.
 ```
 /compound writes -> docs/solutions/ + .factory/learnings.jsonl
                               |
-/think reads  <-- factory:learnings-researcher searches
+/think reads  <-- factory:learnings-researcher searches (grep)
 /check reads  <--/
+/retro prunes --> keeps .factory/learnings.jsonl under 200 lines
 ```
 
 The more you use it, the smarter it gets.
@@ -78,10 +81,10 @@ The more you use it, the smarter it gets.
 
 | Agent | Role | Dispatched by |
 |-------|------|---------------|
-| `correctness` | Logic errors, edge cases, state bugs | /check |
+| `correctness` | Logic errors, edge cases, state bugs | /check (always) |
 | `security` | Injection, auth bypass, secrets | /check (conditional) |
 | `adversarial` | Actively constructs failure scenarios | /check (deep reviews) |
-| `learnings-researcher` | Searches past solutions | /think, /check |
+| `learnings-researcher` | Searches past solutions via grep | /think, /check |
 
 ## Anti-Rationalization
 
@@ -108,30 +111,30 @@ Example:
 ```
 .
 ├── .claude-plugin/
-│   └── marketplace.json         # Marketplace registry (points to ./factory)
+│   └── marketplace.json         # Marketplace registry (source: ./factory)
 ├── README.md
-└── factory/                     # The actual plugin
+└── factory/                     # The plugin
     ├── .claude-plugin/
-    │   └── plugin.json          # Plugin manifest
-    ├── skills/
-    │   ├── think/SKILL.md
-    │   ├── plan/SKILL.md
-    │   ├── build/SKILL.md
-    │   ├── hunt/SKILL.md
-    │   ├── check/SKILL.md
-    │   ├── compound/SKILL.md
-    │   ├── design/SKILL.md
-    │   ├── ship/SKILL.md
-    │   ├── health/SKILL.md
-    │   └── retro/SKILL.md
-    ├── agents/
+    │   └── plugin.json
+    ├── skills/                  # 10 SKILL.md directories
+    │   ├── think/
+    │   ├── plan/
+    │   ├── build/
+    │   ├── hunt/
+    │   ├── check/
+    │   ├── compound/
+    │   ├── design/
+    │   ├── ship/
+    │   ├── health/
+    │   └── retro/
+    ├── agents/                  # 4 review personas
     │   ├── correctness.md
     │   ├── security.md
     │   ├── adversarial.md
     │   └── learnings-researcher.md
     ├── commands/
-    │   └── full-dev.md
-    ├── references/
+    │   └── full-dev.md          # /full-dev pipeline (3 gates)
+    ├── references/              # Shared across all skills
     │   ├── iron-laws.md
     │   ├── anti-rationalizations.md
     │   └── verification-checklists.md
@@ -139,6 +142,19 @@ Example:
         ├── DESIGN.md
         └── solutions/           # Knowledge store (populated at runtime)
 ```
+
+## Versioning
+
+Follows [semver](https://semver.org/). Version is tracked in two places:
+- `factory/.claude-plugin/plugin.json` (plugin version)
+- `.claude-plugin/marketplace.json` (marketplace + plugin entry)
+
+Both MUST stay in sync on every release.
+
+| Version | Date | Summary |
+|---------|------|---------|
+| 0.2.0 | 2026-04-08 | Full audit pass: all DNA gaps closed, learnings lifecycle wired, marketplace structure fixed |
+| 0.1.0 | 2026-04-08 | Initial release: 10 skills, 4 agents, 1 pipeline, 3 references |
 
 ## License
 
