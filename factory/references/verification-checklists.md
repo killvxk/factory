@@ -71,5 +71,7 @@ Source: agent-skills (Addy Osmani), superpowers (Jesse Vincent).
 
 ### /retro
 - [ ] Week's work reviewed with evidence (git log, not memory)
-- [ ] docs/solutions/ freshness checked
+- [ ] .factory/learnings.jsonl reviewed for past week's entries
+- [ ] .factory/learnings.jsonl pruned if >200 lines
+- [ ] docs/solutions/ freshness checked (Keep/Update/Delete each doc)
 - [ ] At least 1 actionable improvement identified

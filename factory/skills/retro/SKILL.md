@@ -21,15 +21,31 @@ and identify one actionable improvement.
 
 2. **What shipped**: List features, fixes, and changes with commit references.
 
-3. **What was learned**: Review .factory/learnings.jsonl entries from the past week.
+3. **What was learned**: Review .factory/learnings.jsonl entries from the past week:
+   ```bash
+   if [ -f .factory/learnings.jsonl ]; then
+     # Show entries from the last 7 days
+     grep "$(date +%Y-%m)" .factory/learnings.jsonl | tail -20
+   fi
+   ```
 
-4. **Knowledge maintenance**: Review docs/solutions/ for freshness.
+4. **Learnings cleanup**: If .factory/learnings.jsonl exceeds 200 lines, prune:
+   - Remove entries older than 90 days (stale operational tips lose value)
+   - Remove duplicates (same learning, different dates)
+   - Keep the file under 200 lines
+   ```bash
+   wc -l .factory/learnings.jsonl 2>/dev/null
+   # If >200 lines, keep only last 200:
+   # tail -200 .factory/learnings.jsonl > .factory/learnings.tmp && mv .factory/learnings.tmp .factory/learnings.jsonl
+   ```
+
+5. **Knowledge maintenance**: Review docs/solutions/ for freshness.
    For each doc, classify:
    - **Keep**: still relevant and accurate
    - **Update**: core is right but details have changed
    - **Delete**: no longer applicable (code was removed/rewritten)
 
-5. **One improvement**: Identify exactly ONE actionable improvement for next week.
+6. **One improvement**: Identify exactly ONE actionable improvement for next week.
    Not three. Not five. One. Make it specific and measurable.
 
 ## Output
