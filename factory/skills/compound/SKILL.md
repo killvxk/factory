@@ -43,13 +43,28 @@ Keep it concise. A good solution doc is 20-50 lines, not a novel.
 
 ## Quick Storage: .factory/learnings.jsonl
 
-Append one JSON line per learning:
+Initialize if needed, then append one JSON line per learning:
 
-```json
-{"date":"2026-04-07","skill":"hunt","learning":"MCP tool failures: diagnose before switching tools","tags":["mcp","debugging"]}
+```bash
+mkdir -p .factory
+echo '{"date":"'"$(date +%Y-%m-%d)"'","skill":"hunt","learning":"MCP tool failures: diagnose before switching tools","tags":["mcp","debugging"]}' >> .factory/learnings.jsonl
 ```
 
-Future sessions surface the top 3 most relevant learnings via tag matching.
+Schema per line:
+```json
+{"date":"YYYY-MM-DD","skill":"think|plan|build|hunt|check|compound|design|ship|health|retro","learning":"one sentence","tags":["searchable","keywords"]}
+```
+
+Future `/think` and `/check` sessions auto-surface the top 3 most relevant entries via `factory:learnings-researcher`.
+
+## .gitignore Decision
+
+`.factory/` should be **committed to the repo** (team knowledge, not personal state).
+Add to `.gitignore` ONLY if the team decides learnings are personal:
+```
+# Uncomment if learnings should be personal, not shared:
+# .factory/learnings.jsonl
+```
 
 ## When to Use Which
 
