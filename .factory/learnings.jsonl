@@ -1,0 +1,6 @@
+{"date":"2026-04-09","skill":"compound","learning":"marketplace.json source field cannot be dot — must point to subdirectory like ./factory","tags":["marketplace","plugin","gotcha"]}
+{"date":"2026-04-09","skill":"think","learning":"Socratic exploration before proposing solutions: ask 1-3 questions at a time, surface assumptions, follow up on vague answers","tags":["brainstorm","exploration","think"]}
+{"date":"2026-04-09","skill":"retro","learning":"CLAUDE.local.md is the only file that is both auto-loaded at session start AND gitignored — use it for ephemeral project state","tags":["retro","persistence","claude-local"]}
+{"date":"2026-04-09","skill":"check","learning":"verification-checklists.md must be explicitly referenced in every skill — orphaned reference files are useless","tags":["verification","checklist","cross-reference"]}
+{"date":"2026-04-09","skill":"build","learning":"anti-rationalization tables need 11+ entries to be effective — 6 is insufficient coverage per superpowers empirical finding","tags":["anti-rationalization","build","tdd"]}
+{"date":"2026-04-09","skill":"compound","learning":"5 cargo-cult items identified: Inter font ban, 0.60 confidence threshold, health weights, ship checklist categories, two-stage review order — all experience values pending own data validation","tags":["first-principles","cargo-cult","experience-values"]}
