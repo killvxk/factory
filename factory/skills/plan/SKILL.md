@@ -60,17 +60,39 @@ A good plan can be executed by a different person (or agent) without asking ques
 - Depends on: Task 1
 ```
 
-## Plan Review
+## Plan Spec Review (mandatory before presenting to user)
 
-After drafting the plan, run a self-review AND optionally invoke `factory:check` in headless mode
-on the plan document itself (document-review pattern from compound-engineering).
-If headless review is overkill for the scope, at minimum complete this self-review:
+After drafting the plan but BEFORE presenting, review the plan itself.
+
+### Self-Review Checklist (all plans)
 
 - [ ] Every task has files, acceptance, verify
 - [ ] No circular dependencies
 - [ ] Parallel tasks have no shared mutable state
 - [ ] Verification commands are real (not "check manually")
 - [ ] Total scope matches the approved direction (no scope creep)
+- [ ] No TBD/TODO/placeholder in any task
+
+### Structured Plan Review (6+ tasks or Standard/Deep)
+
+For plans with 6+ tasks, review from 4 dimensions:
+
+1. **Completeness**: Does the plan cover ALL requirements from the /think output?
+   Walk through the approved direction point by point. Missing coverage = add a task.
+2. **Ordering**: Are dependencies correct? Could a task fail because its dependency
+   hasn't run yet? Trace the execution order.
+3. **Isolation**: Can parallel tasks truly run independently? Check for shared files,
+   shared database tables, shared global state.
+4. **Verifiability**: Run each verify command mentally. Would it actually catch a failure?
+   `npm test` is too broad. `npm test -- --grep "JWT validation"` is specific.
+
+If any dimension fails, fix the plan before presenting.
+
+### Deep Plan Review (10+ tasks or complex architecture)
+
+For large plans, additionally dispatch `factory:check` in headless mode on the plan
+document itself (document-review pattern from compound-engineering). This catches
+cross-task consistency issues that self-review misses.
 
 ## Verification
 

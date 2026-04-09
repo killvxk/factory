@@ -17,6 +17,7 @@ Source: agent-skills (Addy Osmani), superpowers (Jesse Vincent).
 
 ### /think
 - [ ] Interactive exploration completed (questions asked, answers heard, assumptions surfaced)
+- [ ] Spec review passed (completeness, consistency, feasibility, clarity) for Standard/Deep
 - [ ] At least 2 approaches proposed with trade-offs
 - [ ] Own recommendation attacked before presenting
 - [ ] docs/solutions/ consulted for prior art
@@ -27,7 +28,8 @@ Source: agent-skills (Addy Osmani), superpowers (Jesse Vincent).
 - [ ] Every task has exact file paths and verification commands
 - [ ] Parallel tasks explicitly marked with no blocking dependencies
 - [ ] Each task has acceptance criteria
-- [ ] Plan reviewed (self-review or document-review)
+- [ ] Plan spec review passed (completeness, ordering, isolation, verifiability)
+- [ ] Deep plan review dispatched for 10+ task plans
 
 ### /build
 - [ ] Every feature has a failing test written BEFORE implementation

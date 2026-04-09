@@ -89,9 +89,35 @@ For Standard and Deep depth, evaluate the proposal from three lenses before pres
 State one concern from each lens. If any concern is unresolved, investigate before presenting.
 Do NOT create separate review steps for each lens — integrate them into your proposal naturally.
 
+## Spec Review (before presenting to user)
+
+After formulating the design but BEFORE presenting, review your own output:
+
+### Self-Review Checklist (all depths)
+
+- [ ] Addresses the user's actual problem (not a reframed version you prefer)
+- [ ] All assumptions surfaced during exploration are resolved or explicitly listed
+- [ ] No contradictions between proposed approach and stated constraints
+- [ ] Scope matches what was agreed during exploration (no stealth additions)
+
+### Structured Spec Review (Standard/Deep only)
+
+For Standard and Deep depth, review from 4 dimensions:
+
+1. **Completeness**: Does the design cover all requirements discovered in exploration?
+   If anything is missing, add it or explain why it's deferred.
+2. **Consistency**: Do the parts fit together? Any contradictions between components?
+3. **Feasibility**: Can this actually be built with the stated constraints?
+   Check: dependencies exist, APIs available, timeline realistic.
+4. **Clarity**: Could a different engineer (or /plan) take this and produce tasks
+   without asking clarifying questions? If not, add detail.
+
+If any dimension fails, fix the design before presenting. Do NOT present a spec
+you know has gaps.
+
 ## Confidence Check
 
-Before presenting to user, self-score on 3 axes (1-5):
+After spec review, self-score on 3 axes (1-5):
 - Requirements clarity
 - Technical feasibility
 - Risk awareness
