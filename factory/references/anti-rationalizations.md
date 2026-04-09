@@ -29,6 +29,8 @@ Sources: superpowers (Iron Laws), agent-skills (per-skill tables), Waza (rationa
 | "Let's just start coding and figure it out" | Enter /think first; zero code until design approved |
 | "The requirements are clear enough" | List 3 ambiguities you haven't resolved |
 | "We can refactor later" | Design the right abstraction now; refactoring debt compounds |
+| "The user already said what they want" | They said WHAT, not WHY, not boundaries, not failure modes; explore first |
+| "Asking questions slows us down" | Building the wrong thing is slower; 3 questions now saves 3 hours |
 
 ### Build Phase
 | Rationalization | Counter-Action |

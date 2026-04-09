@@ -16,6 +16,7 @@ Source: agent-skills (Addy Osmani), superpowers (Jesse Vincent).
 ## Per-Skill Checklists
 
 ### /think
+- [ ] Interactive exploration completed (questions asked, answers heard, assumptions surfaced)
 - [ ] At least 2 approaches proposed with trade-offs
 - [ ] Own recommendation attacked before presenting
 - [ ] docs/solutions/ consulted for prior art

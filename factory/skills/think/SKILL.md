@@ -25,26 +25,58 @@ and the user has approved a direction. Consult past solutions to avoid repeating
 2. Verify current directory with `pwd`. Never assume paths.
 3. If the request involves external services, list ALL dependencies before starting.
 
-## Approach
+## Interactive Exploration (Brainstorm Phase)
 
-Assess depth first:
-- **Lightweight** (single-file change, well-understood domain): 1 round, 2 options
-- **Standard** (multi-file, some unknowns): 2 rounds, 2-3 options with trade-offs
-- **Deep** (new system, external contracts, security-sensitive): full validation cycle
+Before proposing ANY solution, explore the problem space WITH the user.
+Do NOT skip this phase. Do NOT jump to solutions.
 
-For each approach proposed:
-- Name it concisely
-- State the trade-off (what you gain, what you lose)
-- Include one MINIMAL option (least change, least risk)
-- Attack your own recommendation: "This could fail if..."
+### Depth Assessment
 
-## Scope Modes
+Classify first to calibrate how much exploration is needed:
+- **Lightweight** (single-file change, well-understood domain): 1-2 questions, then propose
+- **Standard** (multi-file, some unknowns): 3-5 questions across 2 rounds
+- **Deep** (new system, external contracts, security-sensitive): full Socratic exploration
 
-When the user's intent is ambiguous, ask which posture to take:
+### Socratic Exploration
+
+Ask questions that expose assumptions, not just gather requirements.
+The goal is to discover what the user HASN'T thought about yet.
+
+Question categories (pick the most relevant, don't ask all):
+- **Boundary**: "What's explicitly OUT of scope?" "Where does this feature end?"
+- **User scenario**: "Walk me through how a user would actually use this."
+- **Failure mode**: "What happens if this fails? What's the blast radius?"
+- **Constraint**: "What technical/business constraints should I know about?"
+- **Prior art**: "Has anything similar been attempted before? What happened?"
+- **Priority**: "If you could only ship ONE aspect of this, which one?"
+
+### Exploration Rules
+
+- Ask 1-3 questions at a time, not a wall of 10 questions
+- Listen to the answer. Follow up on surprising or vague responses.
+- Surface your own assumptions explicitly: "I'm assuming X — is that right?"
+- If the user says "you decide" on a design choice, propose 2 options with trade-offs
+  and pick one with a stated reason. Don't punt back.
+- When enough is understood (you can describe the solution to a third person),
+  transition to proposing approaches.
+
+### Scope Modes
+
+When the user's intent about scope is ambiguous, ask which posture to take:
 - **expand**: explore adjacent possibilities
 - **shape**: refine the current direction
 - **hold**: validate without changing scope
 - **cut**: simplify, remove, reduce
+
+## Propose Approaches
+
+Only after Interactive Exploration has built shared understanding.
+
+For each approach:
+- Name it concisely
+- State the trade-off (what you gain, what you lose)
+- Include one MINIMAL option (least change, least risk)
+- Attack your own recommendation: "This could fail if..."
 
 ## Multi-Perspective Validation (from gstack)
 
@@ -98,3 +130,5 @@ These are from real project failures, not theoretical risks:
 | "This is a small change, no need to think" | Small changes to the wrong thing are still wrong. |
 | "We can refactor later" | Refactoring debt compounds. Design it right. |
 | "I already know the best approach" | Then it should take 2 minutes to document why. Do it. |
+| "The user already told me what they want" | They told you WHAT. You need to discover WHY, boundaries, and failure modes. |
+| "Asking questions slows us down" | Building the wrong thing slows you down more. 3 questions now saves 3 hours later. |
