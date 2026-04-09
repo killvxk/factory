@@ -31,8 +31,8 @@ Every skill works standalone. Together they form a pipeline.
 
 | Skill | When to use | One-liner |
 |-------|------------|-----------|
-| `/think` | Before building anything new | Design validation. Checks history. Zero code until approved. |
-| `/plan` | After direction is confirmed | Zero-ambiguity task list. Every task has files, acceptance, verify command. |
+| `/think` | Before building anything new | Socratic brainstorm with user. Spec review before presenting. Zero code until approved. |
+| `/plan` | After direction is confirmed | Zero-ambiguity task list. Mandatory plan spec review. Every task has files, acceptance, verify. |
 | `/build` | When implementing features | TDD Iron Law. Red-green-refactor. Parallel worktrees. Two-stage review. |
 | `/hunt` | Any bug or unexpected behavior | Root cause first. 7 failure shapes. 3 strikes then stop. |
 | `/check` | After implementation, before merge | 3 personas in parallel. Confidence gating. Auto-fix safe issues. |
