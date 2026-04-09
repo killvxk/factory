@@ -48,23 +48,49 @@ and identify one actionable improvement.
 6. **One improvement**: Identify exactly ONE actionable improvement for next week.
    Not three. Not five. One. Make it specific and measurable.
 
-## Output
+7. **Persist to CLAUDE.local.md**: Write the retro output to the project-level
+   `CLAUDE.local.md` file so it survives across sessions and influences future behavior.
+
+## Persistence to CLAUDE.local.md
+
+The retro MUST be written to `CLAUDE.local.md` (project root, gitignored).
+This file is loaded by Claude Code at session start, so retro learnings
+automatically influence all future sessions in this project.
+
+### Write Strategy
+
+Read `CLAUDE.local.md` first. If it exists, **update** the `## Retro` section.
+If it doesn't exist, create it. Always keep only the LATEST retro
+(not a growing history — that's what git log and learnings.jsonl are for).
 
 ```markdown
-## Week of {date}
+# Project Local Notes
 
-### Shipped
-- {feature/fix}: {1-line description} ({commit ref})
+## Retro (Week of {date})
 
-### Learned
-- {learning from JSONL or conversation}
+### This Week
+- {feature}: {1-line} ({commit})
+- ...
 
-### Knowledge Maintenance
-- docs/solutions/{file}.md: Keep | Updated | Deleted
+### Active Improvement
+- {the ONE improvement for next week}
 
-### Next Week: One Improvement
-- {specific, measurable action}
+### Watch List
+- {any recurring pattern from learnings.jsonl worth watching}
 ```
+
+### Why CLAUDE.local.md
+
+| Alternative | Why not |
+|-------------|---------|
+| CLAUDE.md | Committed to repo; retro is personal/team-local, not repo-level |
+| .factory/retro.md | Not auto-loaded by Claude Code; requires manual read |
+| Conversation only | Gone when session ends |
+| docs/solutions/ | For solved problems, not weekly status |
+
+`CLAUDE.local.md` is the ONLY file that is both (a) auto-loaded at session start
+and (b) gitignored by default. This makes it the right place for ephemeral
+project state like "what we're focusing on this week."
 
 ## Constraints
 
@@ -72,6 +98,7 @@ and identify one actionable improvement.
 - Do not fabricate commit references
 - One improvement, not a wish list
 - Keep the retro under 5 minutes of reading time
+- Always persist to CLAUDE.local.md (do not skip this step)
 
 ## Verification
 
@@ -92,3 +119,5 @@ Before closing, consult `references/verification-checklists.md` for the /retro c
 - Retro based on memory instead of git log — missed half the work
 - Listed 7 improvements — none got done. One is enough.
 - Forgot to clean stale docs/solutions/ — knowledge rot accumulated
+- Retro only in conversation, never written to file — next session started from zero
+- Wrote retro to CLAUDE.md instead of CLAUDE.local.md — polluted shared repo config

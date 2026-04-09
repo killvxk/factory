@@ -1,6 +1,6 @@
 # Factory
 
-> v0.3.0
+> v0.4.0
 
 10 engineering skills. 4 review agents. 1 pipeline. 3 iron laws.
 
@@ -159,6 +159,7 @@ Both MUST stay in sync on every release.
 
 | Version | Date | Summary |
 |---------|------|---------|
+| 0.4.0 | 2026-04-09 | /retro persists to CLAUDE.local.md; auto-loaded at next session start |
 | 0.3.0 | 2026-04-09 | Spec review gates for /think and /plan; interactive brainstorm phase in /think; learnings lifecycle |
 | 0.2.0 | 2026-04-08 | Full audit pass: all DNA gaps closed, marketplace structure fixed |
 | 0.1.0 | 2026-04-08 | Initial release: 10 skills, 4 agents, 1 pipeline, 3 references |
