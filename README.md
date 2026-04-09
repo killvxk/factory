@@ -50,10 +50,16 @@ Every skill works standalone. Together they form a pipeline.
 
 Chains: `/think` -> `/plan` -> `/build` (TeamCreate parallel TDD) -> `/check` -> `/ship` -> `/compound`
 
-3 human gates:
-- **G1**: Confirm direction (after /think)
-- **G2**: Confirm plan (after /plan)
-- **G3**: Confirm ready to ship (after /check)
+3 human gates + 2 internal quality gates:
+
+**Human gates** (require user approval):
+- **G1**: Confirm direction (after /think brainstorm + spec review)
+- **G2**: Confirm plan (after /plan + plan spec review)
+- **G3**: Confirm ready to ship (after /check multi-persona review)
+
+**Internal quality gates** (automated, no user action):
+- **/think spec review**: 4-dimension self-review (completeness, consistency, feasibility, clarity) before presenting design to user
+- **/plan spec review**: 4-dimension self-review (completeness, ordering, isolation, verifiability) before presenting plan to user. Deep plans (10+ tasks) dispatch headless document-review.
 
 Everything else is autonomous.
 
