@@ -78,3 +78,4 @@ Source: agent-skills (Addy Osmani), superpowers (Jesse Vincent).
 - [ ] .factory/learnings.jsonl pruned if >200 lines
 - [ ] docs/solutions/ freshness checked (Keep/Update/Delete each doc)
 - [ ] At least 1 actionable improvement identified
+- [ ] Retro persisted to CLAUDE.local.md (## Retro section updated)
