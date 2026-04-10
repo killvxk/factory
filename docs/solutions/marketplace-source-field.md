@@ -3,7 +3,7 @@ title: "Claude Code marketplace.json source field cannot be '.'"
 date: 2026-04-09
 problem_type: bug
 components: [marketplace, plugin-structure]
-tags: [marketplace, plugin-json, source-field, claude-code]
+tags: [marketplace, plugin-json, source-field, claude-code, legacy-claude]
 ---
 
 ## Problem
@@ -17,6 +17,8 @@ The `source` field in marketplace.json was set to `"."` (current directory). Cla
 ## Solution
 
 Restructured the repo: moved all plugin content into a `factory/` subdirectory, changed `source` to `"./factory"`. Root level only contains marketplace.json and README.
+
+Legacy context: this was the Claude Code marketplace fix that led to the original repo split. The Codex migration keeps the same idea but uses a repo-local plugin at `plugins/factory/` and `.agents/plugins/marketplace.json`.
 
 ```
 .

@@ -3,7 +3,7 @@ title: "Distilling 5 plugins into 1 self-contained Factory plugin"
 date: 2026-04-09
 problem_type: architecture
 components: [factory, skills, agents, references, pipeline]
-tags: [plugin-design, architecture, distillation, compound-engineering, agent-skills, waza, superpowers, gstack]
+tags: [plugin-design, architecture, distillation, compound-engineering, agent-skills, waza, superpowers, gstack, legacy-claude]
 ---
 
 ## Problem
@@ -18,12 +18,14 @@ No single plugin covered the full engineering lifecycle with both quality enforc
 
 Created a new self-contained plugin with 10 skills, 4 agents, 3 shared references, and 1 pipeline command. Each skill internalizes the best from all 5 sources using a specific "DNA recipe" mapping.
 
+Legacy context: this document records the Claude Code-era distillation that produced the prompt assets now being reused in Codex. The migration preserves the assets, but the runtime packaging changes to plugin-local Codex semantics.
+
 Key design decisions:
 - **Waza writing style**: goals + constraints + gotchas, not step-by-step (future-proof as models improve)
 - **Superpowers enforcement**: Iron Laws + anti-rationalization tables in every skill
 - **Compound memory**: docs/solutions/ + .factory/learnings.jsonl knowledge loop
 - **Agent Skills organization**: lifecycle phases + verification checklists
-- **gstack persistence**: JSONL learnings + CLAUDE.local.md for retro
+- **gstack persistence**: JSONL learnings + `docs/memory/CODEX.local.md` for retro
 
 ## Key Decision
 

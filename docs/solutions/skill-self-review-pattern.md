@@ -3,7 +3,7 @@ title: "Skills must self-review their output before presenting to user"
 date: 2026-04-09
 problem_type: process
 components: [think, plan, check]
-tags: [spec-review, self-review, quality-gate, document-review]
+tags: [spec-review, self-review, quality-gate, document-review, legacy-claude]
 ---
 
 ## Problem
@@ -25,8 +25,10 @@ These are **internal quality gates** (no user action needed), distinct from the 
 
 ## Key Decision
 
-Made spec review mandatory rather than optional. The original /plan had "optionally invoke factory:check in headless mode" which was too weak — nobody opts in to extra work. Mandatory gates with depth-calibrated intensity (lightweight for small, full for large) is the right balance.
+Made spec review mandatory rather than optional. The original plan workflow had optional headless review dispatch, which was too weak - nobody opts in to extra work. Mandatory gates with depth-calibrated intensity (lightweight for small, full for large) is the right balance.
 
 ## Prevention
 
-Every skill that produces an artifact should have a self-review step before presenting. Apply the pattern: create → self-review → present.
+Every skill that produces an artifact should have a self-review step before presenting. Apply the pattern: create -> self-review -> present.
+
+This pattern applies to Codex plugin-local workflows as well as the original Claude-era pipeline.
