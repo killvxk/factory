@@ -1,9 +1,9 @@
 ---
-name: ship
-description: "Guides the final merge, PR, and deployment verification for the Factory Codex plugin and connected repos. Use when implementation is complete, tests pass, and you need to integrate the work. Triggers: ship, merge, create PR, deploy, we're done, push this. NOT for review (use /factory:check) or planning (use /factory:plan)."
+name: factory-ship
+description: "Guides the final merge, PR, and deployment verification for the Factory Codex plugin and connected repos. Use when implementation is complete, tests pass, and you need to integrate the work. Triggers: ship, merge, create PR, deploy, we're done, push this. NOT for review (use the factory-check skill) or planning (use the factory-plan skill)."
 ---
 
-# /factory:ship - Get It Out the Door
+# Factory Ship Skill - Get It Out the Door
 
 ## Goal
 
@@ -22,7 +22,7 @@ verification at each step. Present exactly 4 options, never open-ended.
 
 Before any ship action:
 - [ ] All tests pass on the current branch
-- [ ] `/factory:check` has been run (or headless mode passed)
+- [ ] The check skill has been run (or headless mode passed)
 - [ ] No P0 findings remaining
 - [ ] Build succeeds with zero errors
 

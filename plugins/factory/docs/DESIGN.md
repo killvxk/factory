@@ -2,7 +2,7 @@
 
 ## One-Line Definition
 
-10 engineering habits x anti-rationalization x compounding knowledge.
+11 engineering habits x anti-rationalization x compounding knowledge.
 
 ## Origin
 
@@ -16,7 +16,7 @@ Distilled from 5 projects (2026-04-07 analysis session):
 | superpowers (Jesse Vincent) | 5.0.7 | Iron Laws, persuasion science for compliance, CSO, two-stage review, TDD-for-skills |
 | gstack (Garry Tan) | 0.15.15.1 | Persistent JSONL learning, 3-tier skill eval, preamble tiers, sprint pipeline |
 
-Legacy predecessor: `~/.claude/commands/full-development.md` (433-line hand-stitched pipeline calling external skills). Kept here as migration history; Codex execution now uses plugin-local commands, references, and subagents.
+Legacy predecessor: `~/.claude/commands/full-development.md` (433-line hand-stitched pipeline calling external skills). Kept here as migration history; Codex execution now uses plugin-local skills, references, and subagents.
 
 ## Architecture
 
@@ -28,10 +28,10 @@ repo-root/
 |-- .agents/plugins/    Local marketplace registry
 `-- plugins/factory/
     |-- .codex-plugin/   Codex manifest
-    |-- skills/         10 self-contained plugin-local SKILL.md directories
+    |-- skills/         11 self-contained plugin-local SKILL.md directories
     |-- agents/         4 local reviewer/research prompt assets loaded by Codex workflows
     |-- references/     Shared anti-rationalizations, iron laws, verification checklists
-    |-- commands/       Pipeline command wrappers
+    |-- commands/       Legacy prompt wrappers kept for migration reference
     `-- docs/           Plugin-local design and runtime notes
 ```
 
@@ -43,20 +43,21 @@ repo-root/
 4. Description field: ONLY triggering conditions, never workflow summaries (Superpowers CSO).
 5. Evidence-based gotchas: only from real failures, not theoretical risks (Waza).
 
-## 10 Skills
+## 11 Skills
 
 | # | Skill | Replaces | Core DNA |
 |---|-------|----------|----------|
-| 1 | think | superpowers:brainstorming | Waza structure + Compound learnings lookup |
-| 2 | plan | ce:plan | Compound planning + Agent Skills lifecycle |
-| 3 | build | superpowers:TDD + parallel subagents | Superpowers Iron Law + Codex subagents + two-stage review |
-| 4 | hunt | (new) | Waza structure + Superpowers systematic-debugging |
-| 5 | check | ce:review + review-fix | Waza structure + Compound 3-persona + confidence gating |
-| 6 | compound | ce:compound | Compound knowledge + gstack JSONL learnings |
-| 7 | design | (new) | Waza anti-template + gstack screenshot verify |
-| 8 | ship | (new) | gstack ship + Agent Skills pre-launch + Superpowers 4-option |
-| 9 | health | (new) | Waza dual-agent audit + gstack weighted scoring |
-| 10 | retro | (new) | gstack retro + Compound compound-refresh |
+| 1 | factory-think | superpowers:brainstorming | Waza structure + Compound learnings lookup |
+| 2 | factory-plan | ce:plan | Compound planning + Agent Skills lifecycle |
+| 3 | factory-build | superpowers:TDD + parallel subagents | Superpowers Iron Law + Codex subagents + two-stage review |
+| 4 | factory-hunt | (new) | Waza structure + Superpowers systematic-debugging |
+| 5 | factory-check | ce:review + review-fix | Waza structure + Compound 3-persona + confidence gating |
+| 6 | factory-compound | ce:compound | Compound knowledge + gstack JSONL learnings |
+| 7 | factory-design | (new) | Waza anti-template + gstack screenshot verify |
+| 8 | factory-ship | (new) | gstack ship + Agent Skills pre-launch + Superpowers 4-option |
+| 9 | factory-health | (new) | Waza dual-agent audit + gstack weighted scoring |
+| 10 | factory-retro | (new) | gstack retro + Compound compound-refresh |
+| 11 | factory-full-dev | full-development orchestration | Factory phase gates + Codex-native skill routing |
 
 ## 4 Agents
 
@@ -75,16 +76,16 @@ The four reviewer/research personas live as plugin-local prompt assets. Codex wo
 2. NO FIXES WITHOUT ROOT CAUSE INVESTIGATION FIRST
 3. NO COMPLETION CLAIMS WITHOUT FRESH VERIFICATION EVIDENCE
 
-## Pipeline (commands/full-dev.md)
+## Pipeline (`skills/full-dev/SKILL.md`)
 
 ```text
-/factory:think -> /factory:plan -> /factory:build (Codex subagent parallel TDD) -> /factory:check -> /factory:ship -> /factory:compound
+factory-think -> factory-plan -> factory-build (Codex subagent parallel TDD) -> factory-check -> factory-ship -> factory-compound
 ```
 
 3 human gates (vs AutoNeeds' 6, vs full-development.md's 5):
-- G1: After /factory:think - confirm direction
-- G2: After /factory:plan - confirm task list
-- G3: After /factory:check - confirm ready to ship
+- G1: After factory-think - confirm direction
+- G2: After factory-plan - confirm task list
+- G3: After factory-check - confirm ready to ship
 
 ## Future Extension Point
 

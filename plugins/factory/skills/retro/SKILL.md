@@ -1,9 +1,9 @@
 ---
-name: retro
+name: factory-retro
 description: "Weekly retrospective with evidence-based review and knowledge maintenance for the Factory Codex plugin. Use at the end of a week, sprint, or project milestone. Triggers: retro, retrospective, what did we do this week, weekly review, reflect on this sprint."
 ---
 
-# /factory:retro - Reflect, Clean, Improve
+# Factory Retro Skill - Reflect, Clean, Improve
 
 ## Goal
 

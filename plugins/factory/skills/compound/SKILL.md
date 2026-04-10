@@ -1,13 +1,13 @@
 ---
-name: compound
-description: "Captures solved problems as searchable knowledge for the Factory Codex plugin. Use after solving a non-trivial problem, completing a feature, or learning something the team should know. Triggers: compound, save this, document what we learned, knowledge capture, what did we learn. NOT for planning (use /factory:plan) or review (use /factory:check)."
+name: factory-compound
+description: "Captures solved problems as searchable knowledge for the Factory Codex plugin. Use after solving a non-trivial problem, completing a feature, or learning something the team should know. Triggers: compound, save this, document what we learned, knowledge capture, what did we learn. NOT for planning (use the factory-plan skill) or review (use the factory-check skill)."
 ---
 
-# /factory:compound - Make Every Solution Count Twice
+# Factory Compound Skill - Make Every Solution Count Twice
 
 ## Goal
 
-Document solved problems so future `/factory:think`, `/factory:check`, and `/factory:retro` sessions can find them.
+Document solved problems so future think, check, and retro sessions can find them.
 Use two storage layers: structured docs for deep solutions, JSONL for quick learnings.
 
 ## Constraints
@@ -44,10 +44,10 @@ Keep it concise. A good solution doc is 20-50 lines, not a novel.
 
 Initialize if needed, then append one JSON line per learning. Schema per line:
 ```json
-{"date":"YYYY-MM-DD","skill":"think|plan|build|hunt|check|compound|design|ship|health|retro","learning":"one sentence","tags":["searchable","keywords"]}
+{"date":"YYYY-MM-DD","skill":"factory-think|factory-plan|factory-build|factory-hunt|factory-check|factory-compound|factory-design|factory-ship|factory-health|factory-retro|factory-full-dev","learning":"one sentence","tags":["searchable","keywords"]}
 ```
 
-Future `/factory:think` and `/factory:check` sessions should surface the top 3 most relevant entries by launching the plugin-local research prompt asset through `spawn_agent`.
+Future think and check sessions should surface the top 3 most relevant entries by launching the plugin-local research prompt asset through `spawn_agent`.
 
 ## Project Memory
 
@@ -71,15 +71,15 @@ Future `/factory:think` and `/factory:check` sessions should surface the top 3 m
 
 ## Integration with Other Skills
 
-- `/factory:think` launches the plugin-local research prompt asset through `spawn_agent` to search `docs/solutions/` and `.factory/learnings.jsonl` before proposing
-- `/factory:check` uses the same plugin-local research prompt asset when reviewing code that touches previously documented areas
-- `/factory:retro` reviews and cleans up stale `docs/solutions/` entries, then refreshes `docs/memory/CODEX.local.md`
+- The think skill launches the plugin-local research prompt asset through `spawn_agent` to search `docs/solutions/` and `.factory/learnings.jsonl` before proposing
+- The check skill uses the same plugin-local research prompt asset when reviewing code that touches previously documented areas
+- The retro skill reviews and cleans up stale `docs/solutions/` entries, then refreshes `docs/memory/CODEX.local.md`
 
 ## Auto-Surface Mechanism
 
-The `/factory:compound` skill writes knowledge. Surfacing stays pull-based:
-1. `/factory:think` launches the plugin-local research prompt asset through `spawn_agent`, which searches both stores before proposing
-2. `/factory:check` launches the same plugin-local prompt asset when reviewing code that touches previously documented areas
+The compound skill writes knowledge. Surfacing stays pull-based:
+1. The think skill launches the plugin-local research prompt asset through `spawn_agent`, which searches both stores before proposing
+2. The check skill launches the same plugin-local prompt asset when reviewing code that touches previously documented areas
 3. No session-start hook is needed; skills pull prior art only when they need it
 
 ## Verification
@@ -93,7 +93,7 @@ Before closing, verify the new knowledge entry is searchable and the solution do
 | "I'll document it later" | Context decays in hours. Write it now. |
 | "The code is self-documenting" | Code says WHAT, not WHY. Document the decision. |
 | "This is too small to document" | Small gotchas compound. 1 line in JSONL takes 10 seconds. |
-| "Nobody will read this" | Future /think will auto-surface it. The reader is the machine. |
+| "Nobody will read this" | Future think sessions will auto-surface it. The reader is the machine. |
 | "The PR description covers it" | PR descriptions are on GitHub. `docs/solutions/` is in the repo. |
 
 ## Gotchas

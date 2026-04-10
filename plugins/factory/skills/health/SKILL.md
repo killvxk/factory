@@ -1,9 +1,9 @@
 ---
-name: health
+name: factory-health
 description: "Audits Factory Codex plugin configuration for correctness, security, and effectiveness. Use when Codex ignores instructions, hooks malfunction, MCP needs auditing, or setup feels off. Triggers: health, check my setup, audit config, is my Codex setup right, something feels off."
 ---
 
-# /factory:health - Is Your Setup Working For You?
+# Factory Health Skill - Is Your Setup Working For You?
 
 ## Goal
 
@@ -16,23 +16,23 @@ Optionally compute a weighted 0-10 code quality score.
 - Credentials MUST be redacted before any agent receives data
 - If a tool is unavailable (jq, python3), mark that area as [INSUFFICIENT DATA], not a finding
 - Do not auto-apply fixes without user confirmation
-- Treat repo-local Codex surfaces as the source of truth: `plugins/factory/.codex-plugin/plugin.json`, `.agents/plugins/marketplace.json`, `plugins/factory/skills/`, `plugins/factory/commands/`, `docs/memory/CODEX.local.md`, `.factory/learnings.jsonl`, and `docs/solutions/`
+- Treat repo-local Codex surfaces as the source of truth: `plugins/factory/.codex-plugin/plugin.json`, `.agents/plugins/marketplace.json`, `plugins/factory/skills/`, `plugins/factory/commands/` (legacy prompt wrappers only), `docs/memory/CODEX.local.md`, `.factory/learnings.jsonl`, and `docs/solutions/`
 
 ## Six-Layer Audit
 
-1. **Plugin manifest** - Does `plugins/factory/.codex-plugin/plugin.json` exist? Is it valid and aligned with the published command and skill surface?
+1. **Plugin manifest** - Does `plugins/factory/.codex-plugin/plugin.json` exist? Is it valid and aligned with the published skill surface?
 2. **Marketplace and install path** - Does `.agents/plugins/marketplace.json` point at the repo-local plugin? Is the expected install/discovery path documented correctly?
-3. **Skills and commands** - Are the expected skills present? Are descriptions consistent? Do command names avoid Claude-only paths?
+3. **Skills and legacy prompt docs** - Are the expected skills present? Are descriptions consistent? Do any legacy docs still claim unsupported Claude-style command paths?
 4. **Hooks and runtime config** - Are hooks, MCP, and app/config files valid? Are scripts executable? Are any secrets exposed?
 5. **Memory and knowledge** - Is `docs/memory/CODEX.local.md` present and current? Is `.factory/learnings.jsonl` valid JSONL? Are `docs/solutions/` entries still accurate?
-6. **Behavior** - Recent Codex sessions: does the plugin follow its own instructions, command flow, and verification posture?
+6. **Behavior** - Recent Codex sessions: does the plugin follow its own instructions, skill flow, and verification posture?
 
 ## Tier Detection
 
 | Tier | Signal | Expected Setup |
 |------|--------|----------------|
 | Simple | <500 files, 1 contributor, no CI | plugin manifest + core skills |
-| Standard | 500-5K files, small team or CI | plugin manifest + skills + commands + memory surfaces |
+| Standard | 500-5K files, small team or CI | plugin manifest + skills + memory surfaces |
 | Complex | >5K files, multi-contributor, CI | full Codex plugin surface and verification loop |
 
 ## Data Collection
@@ -46,7 +46,7 @@ For Standard and Complex projects, dispatch TWO parallel agents for independent 
 **Agent 1 - Context + Security:**
 - Plugin manifest quality and contradictions
 - Marketplace placement and install path
-- Skill descriptions and command naming
+- Skill descriptions and any legacy prompt-doc naming
 - Memory surface hygiene: `docs/memory/CODEX.local.md`, `.factory/learnings.jsonl`, `docs/solutions/`
 - MCP / hooks / app config token overhead and exposure
 - Startup context budget (>30K tokens before first message = HIGH, >6 servers = flag)
@@ -58,7 +58,7 @@ For Standard and Complex projects, dispatch TWO parallel agents for independent 
 - Credential exposure in config files
 - Model/config validation for the current Codex environment
 - Three-layer defense consistency (intent / knowledge / enforcement)
-- Conversation and command behavior patterns from recent sessions
+- Conversation and skill-invocation behavior patterns from recent sessions
 
 Credentials MUST be redacted before any agent receives data.
 

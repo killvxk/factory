@@ -1,9 +1,9 @@
 ---
-name: plan
-description: "Creates zero-ambiguity implementation plans with exact file paths and verification commands. Use when a direction is approved and you need to break work into tasks. Triggers: plan, break this down, create tasks, implementation plan, how should we build this. NOT for exploring ideas (use /factory:think) or executing (use /factory:build)."
+name: factory-plan
+description: "Creates zero-ambiguity implementation plans with exact file paths and verification commands. Use when a direction is approved and you need to break work into tasks. Triggers: plan, break this down, create tasks, implementation plan, how should we build this. NOT for exploring ideas (use the factory-think skill) or executing (use the factory-build skill)."
 ---
 
-# /factory:plan - Zero-Ambiguity Task Lists
+# Factory Plan Skill - Zero-Ambiguity Task Lists
 
 ## Goal
 
@@ -21,7 +21,7 @@ A good plan can be executed by a different person (or agent) without asking ques
 
 ## Process
 
-1. Read the approved direction from /think output
+1. Read the approved direction from the think skill output
 2. Consult `docs/solutions/` and `.factory/learnings.jsonl` for relevant past implementations
 3. Identify all files that need to change (grep, glob, read)
 4. Break into tasks:
@@ -38,7 +38,7 @@ A good plan can be executed by a different person (or agent) without asking ques
 ## Task Sizing
 
 - Target: 6+ tasks for parallel worktree execution
-- If fewer than 3: probably not worth /plan, just /build directly
+- If fewer than 3: probably not worth the plan skill; go straight to build
 - If complexity doesn't split into 6, decompose along these axes:
   core logic, boundary handling, error handling, unit tests, type definitions, integration tests
 
@@ -77,7 +77,7 @@ After drafting the plan but BEFORE presenting, review the plan itself.
 
 For plans with 6+ tasks, review from 4 dimensions:
 
-1. **Completeness**: Does the plan cover ALL requirements from the /think output?
+1. **Completeness**: Does the plan cover ALL requirements from the think skill output?
    Walk through the approved direction point by point. Missing coverage = add a task.
 2. **Ordering**: Are dependencies correct? Could a task fail because its dependency
    hasn't run yet? Trace the execution order.
@@ -96,7 +96,7 @@ This catches cross-task consistency issues that self-review misses.
 
 ## Verification
 
-Before closing, consult `references/verification-checklists.md` for the /plan checklist.
+Before closing, consult `references/verification-checklists.md` for the plan checklist.
 
 ## Anti-Rationalizations
 

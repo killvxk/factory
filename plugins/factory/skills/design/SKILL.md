@@ -1,9 +1,9 @@
 ---
-name: design
-description: "Produces distinctive UI with a committed aesthetic direction for the Factory Codex plugin and connected apps. Use when building any user-facing interface, page, or component. Triggers: design this, build the UI, frontend, make it look good, visual direction. NOT for backend logic (use /factory:build) or architecture (use /factory:think)."
+name: factory-design
+description: "Produces distinctive UI with a committed aesthetic direction for the Factory Codex plugin and connected apps. Use when building any user-facing interface, page, or component. Triggers: design this, build the UI, frontend, make it look good, visual direction. NOT for backend logic (use the factory-build skill) or architecture (use the factory-think skill)."
 ---
 
-# /factory:design - Build It With a Point of View
+# Factory Design Skill - Build It With a Point of View
 
 ## Goal
 

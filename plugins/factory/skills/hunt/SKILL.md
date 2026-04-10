@@ -1,9 +1,9 @@
 ---
-name: hunt
-description: "Systematic root-cause debugging for the Factory Codex plugin. Use when encountering any bug, test failure, crash, unexpected behavior, or when something feels off. Triggers: hunt, debug, fix this bug, why is this failing, investigate, what's wrong. NOT for code review (use /factory:check) or new features (use /factory:build)."
+name: factory-hunt
+description: "Systematic root-cause debugging for the Factory Codex plugin. Use when encountering any bug, test failure, crash, unexpected behavior, or when something feels off. Triggers: hunt, debug, fix this bug, why is this failing, investigate, what's wrong. NOT for code review (use the factory-check skill) or new features (use the factory-build skill)."
 ---
 
-# /factory:hunt - Root Cause First, Fix Second
+# Factory Hunt Skill - Root Cause First, Fix Second
 
 ## Goal
 

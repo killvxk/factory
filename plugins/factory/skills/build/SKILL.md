@@ -1,9 +1,9 @@
 ---
-name: build
-description: "Implements features using strict TDD with parallel worktree isolation. Use when implementing any feature, fixing any bug, or changing any behavior after a plan exists. Triggers: build, implement, code this, TDD, develop, write the code. NOT for design (use /factory:think) or review (use /factory:check)."
+name: factory-build
+description: "Implements features using strict TDD with parallel worktree isolation. Use when implementing any feature, fixing any bug, or changing any behavior after a plan exists. Triggers: build, implement, code this, TDD, develop, write the code. NOT for design (use the factory-think skill) or review (use the factory-check skill)."
 ---
 
-# /factory:build - Red-Green-Refactor, No Exceptions
+# Factory Build Skill - Red-Green-Refactor, No Exceptions
 
 ## Goal
 
@@ -67,7 +67,7 @@ When a plan has 3+ independent tasks:
 ## Failure Protocol
 
 - Single subagent fails (independent): retry up to 2 times
-- 3+ subagents fail or share a blocker: STOP, report to user, suggest revisiting /plan
+- 3+ subagents fail or share a blocker: STOP, report to user, suggest revisiting the plan skill
 - Same test fails after fix: re-read execution path from scratch (do not patch again)
 
 ## Verification
@@ -76,14 +76,14 @@ After all code is written:
 - Run the project's build command. Paste last 10 lines as evidence.
 - Run the project's test command. Paste test summary line as evidence.
 - If either fails: fix before claiming completion (Iron Law 3).
-- Consult `references/verification-checklists.md` for the /build checklist.
+- Consult `references/verification-checklists.md` for the build checklist.
 
 ## Gotchas
 
 - Wrote production code before the test - must delete and restart
 - Test passes but for the wrong reason (tautological assertion) - verify the test actually tests behavior
 - Worktree left behind after merge - always run `git worktree prune`
-- Merged branches in wrong order (dependency violation) - check dependency graph from /plan
+- Merged branches in wrong order (dependency violation) - check dependency graph from the plan skill
 - Skipped Stage 1 review, jumped to code quality - spec bugs survive
 
 ## Anti-Rationalizations

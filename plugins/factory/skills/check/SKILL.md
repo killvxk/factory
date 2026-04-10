@@ -1,9 +1,9 @@
 ---
-name: check
-description: "Reviews code via parallel multi-persona agents with confidence gating. Use after completing any implementation task, before merging. Triggers: check, review, review my code, look at this, is this ready, before merge. NOT for debugging (use /factory:hunt) or design (use /factory:think)."
+name: factory-check
+description: "Reviews code via parallel multi-persona agents with confidence gating. Use after completing any implementation task, before merging. Triggers: check, review, review my code, look at this, is this ready, before merge. NOT for debugging (use the factory-hunt skill) or design (use the factory-think skill)."
 ---
 
-# /factory:check - Multi-Persona Review Before You Ship
+# Factory Check Skill - Multi-Persona Review Before You Ship
 
 ## Goal
 
@@ -85,7 +85,7 @@ After all fixes applied:
 
 ## Verification
 
-Before closing, consult `references/verification-checklists.md` for the /check checklist.
+Before closing, consult `references/verification-checklists.md` for the check checklist.
 
 ## Gotchas
 

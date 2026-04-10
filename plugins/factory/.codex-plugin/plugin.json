@@ -1,6 +1,6 @@
 {
   "name": "factory",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Codex plugin for engineering workflow, review, and knowledge compounding.",
   "author": {
     "name": "killvxk",
@@ -22,7 +22,7 @@
   "interface": {
     "displayName": "Factory",
     "shortDescription": "Plan, build, review, ship, and compound engineering work in Codex.",
-    "longDescription": "Factory packages ten engineering workflow skills, four internal reviewer and researcher personas, and a coordinated full-development command for Codex. The bundle lives at plugins/factory, is registered through .agents/plugins/marketplace.json, and preserves the Factory knowledge loop, iron laws, and verification discipline with Codex-native plugin structure and subagent workflows.",
+    "longDescription": "Factory packages eleven engineering workflow skills, four internal reviewer and researcher personas, and a coordinated full-development skill for Codex. The bundle lives at plugins/factory, is registered through .agents/plugins/marketplace.json, and preserves the Factory knowledge loop, iron laws, and verification discipline with Codex-native plugin structure and subagent workflows.",
     "developerName": "killvxk",
     "category": "Coding",
     "capabilities": [
@@ -33,9 +33,9 @@
     "privacyPolicyURL": "https://github.com/killvxk/factory",
     "termsOfServiceURL": "https://github.com/killvxk/factory",
     "defaultPrompt": [
-      "Run /factory:full-dev for this feature",
-      "Review this diff with /factory:check",
-      "Capture what we learned with /factory:compound"
+      "$factory-full-dev Run the full development workflow for this feature",
+      "$factory-check Review this diff",
+      "$factory-compound Capture what we learned"
     ],
     "screenshots": []
   }

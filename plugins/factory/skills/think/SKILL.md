@@ -1,9 +1,9 @@
 ---
-name: think
-description: "Validates design before any code is written. Use when starting a new feature, facing an architecture decision, or when the user says think, design this, plan this, let's discuss, brainstorm, or before building anything new. NOT for bug fixes (use /factory:hunt) or code review (use /factory:check)."
+name: factory-think
+description: "Validates design before any code is written. Use when starting a new feature, facing an architecture decision, or when the user says think, design this, plan this, let's discuss, brainstorm, or before building anything new. NOT for bug fixes (use the factory-hunt skill) or code review (use the factory-check skill)."
 ---
 
-# /factory:think - Design and Validate Before You Build
+# Factory Think Skill - Design and Validate Before You Build
 
 ## Goal
 
@@ -108,7 +108,7 @@ For Standard and Deep depth, review from 4 dimensions:
 2. **Consistency**: Do the parts fit together? Any contradictions between components?
 3. **Feasibility**: Can this actually be built with the stated constraints?
    Check: dependencies exist, APIs available, timeline realistic.
-4. **Clarity**: Could a different engineer (or /plan) take this and produce tasks
+4. **Clarity**: Could a different engineer (or the plan skill) take this and produce tasks
    without asking clarifying questions? If not, add detail.
 
 If any dimension fails, fix the design before presenting. Do NOT present a spec
@@ -133,7 +133,7 @@ User explicitly approves a direction. Output a brief summary of:
 
 ## Verification
 
-Before exiting, consult `references/verification-checklists.md` for the /think checklist.
+Before exiting, consult `references/verification-checklists.md` for the think checklist.
 
 ## Gotchas
 
@@ -150,7 +150,7 @@ These are from real project failures, not theoretical risks:
 
 | You might think... | But actually... |
 |--------------------|-----------------|
-| "Let's just start coding and figure it out" | That's how you build the wrong thing. /think exists to prevent this. |
+| "Let's just start coding and figure it out" | That's how you build the wrong thing. The think skill exists to prevent this. |
 | "The requirements are clear enough" | List 3 ambiguities. If you can't, you haven't looked hard enough. |
 | "This is a small change, no need to think" | Small changes to the wrong thing are still wrong. |
 | "We can refactor later" | Refactoring debt compounds. Design it right. |

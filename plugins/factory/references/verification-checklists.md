@@ -17,7 +17,7 @@ Loaded as a plugin-local Codex reference for skills and review personas.
 
 ## Per-Skill Checklists
 
-### /think
+### factory-think
 - [ ] Interactive exploration completed (questions asked, answers heard, assumptions surfaced)
 - [ ] Spec review passed (completeness, consistency, feasibility, clarity) for Standard/Deep
 - [ ] At least 2 approaches proposed with trade-offs
@@ -26,55 +26,55 @@ Loaded as a plugin-local Codex reference for skills and review personas.
 - [ ] Multi-perspective validation completed (user/engineering/security) for Standard/Deep depth
 - [ ] No code, pseudo-code, or scaffolding in output
 
-### /plan
+### factory-plan
 - [ ] Every task has exact file paths and verification commands
 - [ ] Parallel tasks explicitly marked with no blocking dependencies
 - [ ] Each task has acceptance criteria
 - [ ] Plan spec review passed (completeness, ordering, isolation, verifiability)
 - [ ] Deep plan review dispatched for 10+ task plans
 
-### /build
+### factory-build
 - [ ] Every feature has a failing test written BEFORE implementation
 - [ ] All tests pass after implementation
 - [ ] Spec compliance verified BEFORE code quality review
 - [ ] Build command succeeds with zero warnings
 
-### /factory:hunt
+### factory-hunt
 - [ ] Root cause stated in one sentence (file, function, line, condition)
 - [ ] Fix verified against the original reproduction steps
 - [ ] Regression test added
 - [ ] No more than 5 files touched for a single bug
 
-### /check
+### factory-check
 - [ ] All review personas ran to completion
 - [ ] Findings below 0.60 confidence suppressed
 - [ ] P0 findings: zero remaining
 - [ ] Verification script executed (not skipped)
 
-### /compound
+### factory-compound
 - [ ] Document saved to docs/solutions/ with YAML frontmatter
 - [ ] Learning logged to .factory/learnings.jsonl
 - [ ] Problem, solution, and key decisions all documented
 
-### /design
+### factory-design
 - [ ] Direction locked via 4 mandatory questions
 - [ ] Opened in browser and visually verified
 - [ ] Not a template (would swapping content require layout changes?)
 - [ ] No banned fonts (Inter, Roboto, system-ui as display)
 
-### /ship
+### factory-ship
 - [ ] All tests pass on merged code
 - [ ] CI checked and confirmed passing (not assumed)
 - [ ] Pre-launch checklist completed (6 categories)
 - [ ] One of 4 structured options selected (merge/PR/keep/discard)
 
-### /health
+### factory-health
 - [ ] Six-layer audit complete
 - [ ] Dual-agent audit dispatched for Standard/Complex tiers (or local-only for Simple)
 - [ ] Severity classified ([!] critical, [~] structural, [-] incremental)
 - [ ] No PASS items fabricated without evidence
 
-### /retro
+### factory-retro
 - [ ] Week's work reviewed with evidence (git log, not memory)
 - [ ] .factory/learnings.jsonl reviewed for past week's entries
 - [ ] .factory/learnings.jsonl pruned if >200 lines
