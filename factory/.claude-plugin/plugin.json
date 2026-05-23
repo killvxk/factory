@@ -1,6 +1,6 @@
 {
   "name": "factory",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "10 engineering skills + 4 review agents + 1 pipeline command. Self-contained software development factory.",
   "author": {
     "name": "killvxk",
@@ -14,7 +14,8 @@
     "code-review",
     "knowledge-compounding",
     "debugging",
-    "pipeline"
+    "pipeline",
+    "composable"
   ],
   "dependencies": []
 }
