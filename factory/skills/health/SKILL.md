@@ -93,15 +93,7 @@ Weighted 0-10 score across:
 
 Before closing, consult `references/verification-checklists.md` for the /health checklist.
 
-## Anti-Rationalizations
-
-| You might think... | But actually... |
-|--------------------|-----------------|
-| "The setup looks fine from memory" | Run the data collection. Memory is not evidence. |
-| "MCP overhead doesn't matter" | 10% of 200K context is 20K tokens — that's significant. |
-| "Only Complex projects need this" | Simple projects benefit most — one bad CLAUDE.md wastes every session. |
-| "Hooks are working, I can tell" | Can you? Run the schema check. Silent failures are the worst kind. |
-| "This finding is too minor to report" | Report it as [-] incremental. Let the user decide. |
+> Anti-rationalizations for this skill: see `references/anti-rationalizations.md` § Health Phase and Universal Rationalizations.
 
 ## Gotchas
 

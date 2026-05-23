@@ -1,6 +1,6 @@
 ---
 name: plan
-description: "Creates zero-ambiguity implementation plans with exact file paths and verification commands. Use when a direction is approved and you need to break work into tasks. Triggers: plan, break this down, create tasks, implementation plan, how should we build this. NOT for exploring ideas (use /think) or executing (use /build)."
+description: "Use when a direction is approved and you need to break work into tasks. Triggers: plan, break this down, create tasks, implementation plan, how should we build this. NOT for exploring ideas (use /think) or executing (use /build)."
 version: 1.0.0
 ---
 
@@ -98,16 +98,7 @@ cross-task consistency issues that self-review misses.
 
 Before closing, consult `references/verification-checklists.md` for the /plan checklist.
 
-## Anti-Rationalizations
-
-| You might think... | But actually... |
-|--------------------|-----------------|
-| "The plan is in my head, no need to write it down" | If you can't write it, you can't execute it. Write it. |
-| "This is too small for a formal plan" | If it has 3+ tasks, it needs a plan. Small plans are fast to write. |
-| "Verification commands are obvious" | Write them. Obvious to you, not to the Dev agent in a fresh worktree. |
-| "Dependencies are clear from context" | Mark them explicitly. Context is lost between sessions. |
-| "I'll figure out the file paths during implementation" | Grep now. Wrong paths waste entire task cycles. |
-| "The spec covers everything" | Specs say WHAT. Plans say HOW. Both are needed. |
+> Anti-rationalizations for this skill: see `references/anti-rationalizations.md` § Plan Phase and Universal Rationalizations.
 
 ## Gotchas
 

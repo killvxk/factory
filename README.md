@@ -25,6 +25,17 @@ A self-contained Claude Code plugin distilled from five projects:
 git clone https://github.com/killvxk/factory ~/.claude/plugins/factory
 ```
 
+## Quick Start
+
+1. `/health` — Verify your Claude Code environment
+2. `/think <feature>` — Design exploration (Socratic Q&A)
+3. `/plan` — Break design into tasks
+4. `/build` — TDD implementation
+5. `/check` — Multi-persona code review
+6. `/ship` — Merge / PR / deploy
+
+Or run the full pipeline: `/full-dev "<feature description>"`
+
 ## Skills
 
 Every skill works standalone. Together they form a pipeline.

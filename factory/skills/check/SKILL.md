@@ -1,6 +1,6 @@
 ---
 name: check
-description: "Reviews code via parallel multi-persona agents with confidence gating. Use after completing any implementation task, before merging. Triggers: check, review, review my code, look at this, is this ready, before merge. NOT for debugging (use /hunt) or design (use /think)."
+description: "Use after completing any implementation task, before merging. Triggers: check, review, review my code, look at this, is this ready, before merge. NOT for debugging (use /hunt) or design (use /think)."
 version: 1.0.0
 ---
 
@@ -26,6 +26,8 @@ block on critical findings, and require evidence-based verification before passi
 | Standard | 100-500 lines, 6-10 files | correctness + security + conditional specialists |
 | Deep | 500+ lines, 10+ files, or auth/payments/data | all personas + adversarial pass |
 
+Override: $CLAUDE_EFFORT = max → force Deep regardless of line count; $CLAUDE_EFFORT = low → cap at Quick.
+
 ## Review Personas
 
 Dispatch in parallel via the Agent tool. Each returns structured findings.
@@ -41,6 +43,10 @@ Dispatch in parallel via the Agent tool. Each returns structured findings.
    "If I were trying to break this through this diff, what would I exploit?"
    Four angles: assumption violation, composition failures, cascade construction, abuse cases.
 
+Deep review dispatch order (Deep depth only):
+1. correctness + security: dispatched in PARALLEL
+2. adversarial: dispatched AFTER correctness and security complete
+
 ## Autofix Classification
 
 Every finding must declare one:
@@ -54,6 +60,14 @@ Every finding must declare one:
 - **interactive** (default): present findings, ask user for decisions on gated_auto + manual
 - **autofix**: apply safe_auto silently, create tasks for remainder, never ask user
 - **headless**: return structured JSON for pipeline consumption (used by /build and full-dev)
+  headless mode MUST immediately write all findings to `.omc/check-findings-{timestamp}.json` before proceeding to verification. This ensures findings survive context compaction.
+
+### PR Comment Mode
+When invoked with `--pr-comment` and a PR exists on the current branch:
+1. Detect PR: `gh pr view --json number -q .number` — if no PR found, skip PR comments and output local report only
+2. For each P0-P2 finding with File:{path}:{line}, post inline comment via gh api
+3. P3/advisory: include in summary comment only, not inline
+4. After safe_auto fixes: delete corresponding inline comments
 
 ## Verification
 
@@ -96,12 +110,4 @@ Before closing, consult `references/verification-checklists.md` for the /check c
 - Deployed without env vars configured — check deployment config
 - Git push failed from auth mismatch (HTTPS vs SSH) — verify remote URL
 
-## Anti-Rationalizations
-
-| You might think... | But actually... |
-|--------------------|-----------------|
-| "The diff is small, quick review is fine" | Small diffs can contain critical bugs. Full review. |
-| "I wrote it, I know it's correct" | Author blindness is real. Let the personas review. |
-| "The tests pass, so it's fine" | Tests prove what they test, not what they don't. |
-| "This is just a dependency update" | Dependency updates are a top attack vector. Review. |
-| "should work now" | TRIGGER: run verification immediately. |
+> Anti-rationalizations for this skill: see `references/anti-rationalizations.md` § Check Phase and Universal Rationalizations.

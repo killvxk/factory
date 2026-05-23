@@ -168,7 +168,7 @@ QualityGate MUST:
 1. Review all P0 and P1 findings
 2. Fix P0 and P1 (P2 deferred unless trivial)
 3. Run build + tests after each fix round
-4. Maximum 5 rounds — if not converged, pause and report
+4. Maximum 10 rounds — if not converged, pause and report
 5. Report to Coordinator
 
 **Exit:** P0 = 0, build passes, tests pass
@@ -209,7 +209,14 @@ QualityGate MUST:
    ```
 5. Present results to user
 
-**Exit [GATE 3]:** Build passes + tests pass + no P0 + environment clean
+**Exit [GATE 3 — machine-verified]:** Run all four checks sequentially:
+1. Project build command exits 0
+2. Project test command reports 0 failures
+3. No P0 findings remain in check report
+4. `git worktree list` shows no dev-branch-* entries
+
+If all pass: proceed directly to Phase 5. No human confirmation required.
+Note: G1 (design direction) and G2 (task list) remain human-confirmed gates — they involve judgment that cannot be automated.
 
 ---
 

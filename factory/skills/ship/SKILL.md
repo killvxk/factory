@@ -1,6 +1,6 @@
 ---
 name: ship
-description: "Guides the final merge, PR, and deployment verification. Use when implementation is complete, tests pass, and you need to integrate the work. Triggers: ship, merge, create PR, deploy, we're done, push this. NOT for review (use /check) or planning (use /plan)."
+description: "Use when implementation is complete, tests pass, and you need to integrate the work. Triggers: ship, merge, create PR, deploy, we're done, push this. NOT for review (use /check) or planning (use /plan)."
 version: 1.0.0
 ---
 
@@ -58,7 +58,7 @@ For option 1 or 2, verify:
 - [ ] No synchronous operations in hot paths
 - [ ] Bundle size not significantly increased
 
-### Accessibility
+### Accessibility (skip for CLI/backend-only projects)
 - [ ] Keyboard navigation works
 - [ ] Screen reader landmarks present
 - [ ] Color contrast meets WCAG AA
@@ -88,20 +88,13 @@ After merge/PR:
 - Clean up worktrees: `git worktree prune`
 - Delete merged branches: `git branch -d {branch}`
 - If deployed: verify production (check health endpoint, run smoke test)
+- Consider running `/compound` to capture knowledge from this release.
 
 ## Verification
 
 Before closing, consult `references/verification-checklists.md` for the /ship checklist.
 
-## Anti-Rationalizations
-
-| You might think... | But actually... |
-|--------------------|-----------------|
-| "CI is probably green" | Check it. "Probably" is not evidence. |
-| "This doesn't need a PR, I'll push directly" | PRs are the audit trail. Create one. |
-| "The checklist is overkill for this change" | The checklist exists because someone shipped without it and broke prod. |
-| "I'll clean up the worktrees later" | Disk fills up. Clean now. |
-| "Staging looked fine, no need to check prod" | Staging != production. Verify both. |
+> Anti-rationalizations for this skill: see `references/anti-rationalizations.md` § Ship Phase and Universal Rationalizations.
 
 ## Gotchas
 

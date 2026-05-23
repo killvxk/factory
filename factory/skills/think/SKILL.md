@@ -20,6 +20,7 @@ and the user has approved a direction. Consult past solutions to avoid repeating
 
 ## On Entry
 
+0. If `.factory/.session-context.md` exists, read it as a prior-session knowledge cache. Then dispatch `factory:learnings-researcher` for fresh results (which will overwrite the cache).
 1. Check `docs/solutions/` — dispatch the `factory:learnings-researcher` agent to find
    relevant past solutions. Surface the top 3 if any exist.
 2. Verify current directory with `pwd`. Never assume paths.
@@ -147,14 +148,4 @@ These are from real project failures, not theoretical risks:
 - Regional API variants assumed identical (e.g., Shengwang vs Agora) — verify endpoints
 - Added a new runtime (e.g., FastAPI into a Next.js project) without user approval
 
-## Anti-Rationalizations
-
-| You might think... | But actually... |
-|--------------------|-----------------|
-| "Let's just start coding and figure it out" | That's how you build the wrong thing. /think exists to prevent this. |
-| "The requirements are clear enough" | List 3 ambiguities. If you can't, you haven't looked hard enough. |
-| "This is a small change, no need to think" | Small changes to the wrong thing are still wrong. |
-| "We can refactor later" | Refactoring debt compounds. Design it right. |
-| "I already know the best approach" | Then it should take 2 minutes to document why. Do it. |
-| "The user already told me what they want" | They told you WHAT. You need to discover WHY, boundaries, and failure modes. |
-| "Asking questions slows us down" | Building the wrong thing slows you down more. 3 questions now saves 3 hours later. |
+> Anti-rationalizations for this skill: see `references/anti-rationalizations.md` § Think Phase and Universal Rationalizations.

@@ -1,6 +1,6 @@
 ---
 name: build
-description: "Implements features using strict TDD with parallel worktree isolation. Use when implementing any feature, fixing any bug, or changing any behavior after a plan exists. Triggers: build, implement, code this, TDD, develop, write the code. NOT for design (use /think) or review (use /check)."
+description: "Use when implementing any feature, fixing any bug, or changing any behavior after a plan exists. Triggers: build, implement, code this, TDD, develop, write the code. NOT for design (use /think) or review (use /check)."
 version: 1.0.0
 ---
 
@@ -85,19 +85,4 @@ After all code is written:
 - Merged branches in wrong order (dependency violation) — check dependency graph from /plan
 - Skipped Stage 1 review, jumped to code quality — spec bugs survive
 
-## Anti-Rationalizations
-
-| You might think... | But actually... |
-|--------------------|-----------------|
-| "This function is too simple to test" | Simple functions compose into complex systems. Test it. |
-| "I'll write integration tests instead" | Unit tests are faster and more precise. Write both. |
-| "Mocking is too hard for this" | If it's hard to mock, the coupling is the bug. |
-| "The test infrastructure isn't set up yet" | Set it up. That's part of the task. |
-| "TDD slows me down" | TDD slows your typing. It speeds your shipping. |
-| "This is just a config change" | Config changes break production. Test the config. |
-| "I'll add tests after the PR" | After never comes. RED before GREEN. Always. |
-| "The tests pass, so the code is correct" | Tests prove what they test, not what they don't. Check coverage. |
-| "I know this works, I tested it manually" | Manual tests evaporate. Automated tests persist. Write it down. |
-| "This is a refactor, behavior doesn't change" | Prove it: tests before AND after. Identical results = safe refactor. |
-| "The existing code doesn't have tests either" | That's not an excuse. Add tests for what you touch. |
-| "Worktree setup takes too long" | 3 commands, 10 seconds. Merge conflicts take hours. |
+> Anti-rationalizations for this skill: see `references/anti-rationalizations.md` § Build Phase and Universal Rationalizations.

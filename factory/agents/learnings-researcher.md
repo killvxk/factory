@@ -37,6 +37,7 @@ You search the team's accumulated knowledge before new work begins.
    - Source (file path or JSONL line number)
    - Relevance (why this matters for the current task)
    - Key takeaway (1-2 sentences)
+7. **Persist session context**: Write the top-3 results summary to `.factory/.session-context.md` (overwrite, not append). This file survives context compaction and is read by `/think` on entry as a cache.
 
 ## Rules
 

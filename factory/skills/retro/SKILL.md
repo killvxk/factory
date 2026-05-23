@@ -104,15 +104,7 @@ project state like "what we're focusing on this week."
 
 Before closing, consult `references/verification-checklists.md` for the /retro checklist.
 
-## Anti-Rationalizations
-
-| You might think... | But actually... |
-|--------------------|-----------------|
-| "I remember what I did this week" | You don't. Run git log. Memory is selective. |
-| "This retro can wait until Monday" | Context decays. Do it now while the week is fresh. |
-| "Nothing interesting happened" | Check git log. You forgot something. |
-| "Seven improvements is better than one" | Zero will get done. Pick one. |
-| "The docs/solutions/ are still fine" | When did you last check? Staleness is invisible. |
+> Anti-rationalizations for this skill: see `references/anti-rationalizations.md` § Retro Phase and Universal Rationalizations.
 
 ## Gotchas
 

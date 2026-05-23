@@ -1,6 +1,6 @@
 ---
 name: compound
-description: "Captures solved problems as searchable knowledge. Use after solving a non-trivial problem, completing a feature, or learning something the team should know. Triggers: compound, save this, document what we learned, knowledge capture, what did we learn. NOT for planning (use /plan) or review (use /check)."
+description: "Use after solving a non-trivial problem, completing a feature, or learning something the team should know. Triggers: compound, save this, document what we learned, knowledge capture, what did we learn. NOT for planning (use /plan) or review (use /check)."
 version: 1.0.0
 ---
 
@@ -94,15 +94,7 @@ The `/compound` skill writes knowledge. The surfacing happens via:
 
 Before closing, consult `references/verification-checklists.md` for the /compound checklist.
 
-## Anti-Rationalizations
-
-| You might think... | But actually... |
-|--------------------|-----------------|
-| "I'll document it later" | Context decays in hours. Write it now. |
-| "The code is self-documenting" | Code says WHAT, not WHY. Document the decision. |
-| "This is too small to document" | Small gotchas compound. 1 line in JSONL takes 10 seconds. |
-| "Nobody will read this" | Future /think will auto-surface it. The reader is the machine. |
-| "The PR description covers it" | PR descriptions are on GitHub. docs/solutions/ is in the repo. |
+> Anti-rationalizations for this skill: see `references/anti-rationalizations.md` § Compound Phase and Universal Rationalizations.
 
 ## Gotchas
 

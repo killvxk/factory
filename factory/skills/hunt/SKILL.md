@@ -88,13 +88,7 @@ Before closing, consult `references/verification-checklists.md` for the /hunt ch
 - Blind restart loop (8 restarts, changing one variable each time, without reading error body)
 - Pipeline healthy but no output — needed to test each stage in isolation
 
-## Anti-Rationalizations
+### Knowledge Capture Prompt
+If the root cause was non-obvious (required 2+ hypotheses), suggest: "This debugging revealed a non-obvious root cause. Consider running `/compound`."
 
-| You might think... | But actually... |
-|--------------------|-----------------|
-| "I'll just try this one thing" | No hypothesis = random walking. State what you expect and why. |
-| "I'm confident it's X" | Confidence is not evidence. Instrument and measure. |
-| "Probably the same issue as before" | Re-read from scratch. Similar symptoms, different causes. |
-| "It works on my machine" | Environment difference IS the bug. |
-| "One more restart should fix it" | Read the last error. Never restart >2x without new evidence. |
-| "That part doesn't matter" | Deflection is a signal. Look there. |
+> Anti-rationalizations for this skill: see `references/anti-rationalizations.md` § Hunt Phase and Universal Rationalizations.

@@ -1,6 +1,6 @@
 ---
 name: design
-description: "Produces distinctive UI with a committed aesthetic direction. Use when building any user-facing interface, page, or component. Triggers: design this, build the UI, frontend, make it look good, visual direction. NOT for backend logic (use /build) or architecture (use /think)."
+description: "Use when building any user-facing interface, page, or component. Triggers: design this, build the UI, frontend, make it look good, visual direction. NOT for backend logic (use /build) or architecture (use /think)."
 version: 1.0.0
 ---
 
@@ -73,16 +73,7 @@ Never claim "it looks right" without a visual check in an actual browser.
 
 Before closing, consult `references/verification-checklists.md` for the /design checklist.
 
-## Anti-Rationalizations
-
-| You might think... | But actually... |
-|--------------------|-----------------|
-| "Clean and modern is a direction" | It's not. Name a specific aesthetic. |
-| "The user didn't specify a style" | That's why you ASK the 4 questions first. |
-| "It looks fine to me" | Open a browser. "Looks fine" without visual check = fabrication. |
-| "I'll add animations later" | Motion is part of the direction, not decoration. Decide now. |
-| "Cards are the standard pattern" | Standard = template. Is there a reason for cards here? |
-| "The client won't notice the font" | They'll notice something feels generic. They just won't know why. |
+> Anti-rationalizations for this skill: see `references/anti-rationalizations.md` § Design Phase and Universal Rationalizations.
 
 ## Gotchas
 
