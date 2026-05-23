@@ -1,3 +1,7 @@
 CLAUDE.local.md
-.factory/.session-context.md
+.venv/
 .omc/
+.claude/
+.factory/
+.remember/
+docs/
