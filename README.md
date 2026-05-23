@@ -1,6 +1,6 @@
 # Factory
 
-> v0.4.0
+> v0.5.0
 
 10 engineering skills. 4 review agents. 1 pipeline. 3 iron laws.
 
@@ -66,7 +66,7 @@ Chains: `/think` -> `/plan` -> `/build` (TeamCreate parallel TDD) -> `/check` ->
 **Human gates** (require user approval):
 - **G1**: Confirm direction (after /think brainstorm + spec review)
 - **G2**: Confirm plan (after /plan + plan spec review)
-- **G3**: Confirm ready to ship (after /check multi-persona review)
+- **G3**: Machine-verified (build passes + tests pass + P0 = 0 + worktrees clean)
 
 **Internal quality gates** (automated, no user action):
 - **/think spec review**: 4-dimension self-review (completeness, consistency, feasibility, clarity) before presenting design to user
@@ -170,6 +170,7 @@ Both MUST stay in sync on every release.
 
 | Version | Date | Summary |
 |---------|------|---------|
+| 0.5.0 | 2026-05-23 | Anti-rationalization dedup; CSO descriptions; machine-verified G3; settings.json (hard_deny + skillOverrides + lint hook); session-context persistence; PR comment mode for /check |
 | 0.4.0 | 2026-04-09 | /retro persists to CLAUDE.local.md; auto-loaded at next session start |
 | 0.3.0 | 2026-04-09 | Spec review gates for /think and /plan; interactive brainstorm phase in /think; learnings lifecycle |
 | 0.2.0 | 2026-04-08 | Full audit pass: all DNA gaps closed, marketplace structure fixed |
